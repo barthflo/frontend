@@ -1,0 +1,39 @@
+.logo-outer{
+    cursor:pointer;
+    top: var(--spacing-medium);
+}
+
+.logo-outer-border.rotate{
+    transform :rotateZ(0);
+    transition: transform .5s ease-in-out;
+}
+
+.logo-outer-border{
+    width: calc(var(--spacing-large)* 2);
+    height:calc(var(--spacing-large) * 2);
+    border : calc(var(--spacing) / 1.6) solid var(--color-light);
+    position : relative;
+    transform: rotateZ(45deg);
+    transition: transform .5s ease-in-out;
+}
+
+.logo-inner{
+    top: calc(var(--spacing) /2)
+}
+
+.logo-inner h1{
+    font-family: var(--secondary-font);
+    font-weight: var(--font-normal);
+    letter-spacing : -5px;
+    color:var(--color-light);
+}
+
+.logo-inner span:nth-child(1){
+    color:var(--color-medium);
+}
+
+@media screen and (min-width: 768px){
+    .logo-outer{
+        top:initial;
+    }
+}

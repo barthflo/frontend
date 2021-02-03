@@ -1,0 +1,7 @@
+.work-page{
+    height:100vh;
+    overflow-y: hidden;
+    z-index:0;
+    position:absolute;
+    top:0;
+}

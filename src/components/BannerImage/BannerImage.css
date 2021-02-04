@@ -1,8 +1,6 @@
 .banner-image{
-    height:130px;
-    width:100%;
-    position:absolute;
-    top:0;
+    height:160px;
+    width:100vw;
     background-image: url("https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067_960_720.png");
     background-position: center;
     background-size: cover;

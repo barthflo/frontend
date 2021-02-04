@@ -1,6 +1,7 @@
 .home-page{
     height:100vh;
-    overflow-y: hidden;
+    max-height:100vh;
+    overflow: hidden;
     z-index:0;
     position:absolute;
     top:0;

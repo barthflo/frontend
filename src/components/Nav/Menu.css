@@ -1,9 +1,13 @@
 .nav-container{
     height: fit-content;
     z-index:10;
-    /* background: var(--color-light); */
 }
 
+.nav-background{
+    background-image: url('http://localhost:3000/assets/mountains.webp');
+    background-size:cover;
+    transition: .3s ease-in-out;
+}
 .menu{
     width: 100vw;
 }

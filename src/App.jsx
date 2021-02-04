@@ -16,7 +16,7 @@ const routes = [
 
 function App() {
   return (
-    <div className="App pt-4 ">
+    <div className="App">
       <Nav />
       <Switch>
         {routes.map((route, index) => 

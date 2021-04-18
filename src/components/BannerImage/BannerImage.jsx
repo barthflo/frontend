@@ -3,8 +3,8 @@ import './BannerImage.css'
 
 const BannerImage = ({backgroundImage}) => {
     return (
-        <header className="banner-image" style={{ backgroundImage: `url(${backgroundImage})`}}>
-            
+        <header className="banner-image">
+            <img src={backgroundImage} alt="banner top page"/>
         </header>
     )
 }

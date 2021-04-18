@@ -11,7 +11,7 @@ const Works = () => {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const fetchProjects = async () => {
-            await Axios.get(`${BACKEND}/projects/with-tags-and-pics`)
+            await Axios.get(`${BACKEND}/projects`)
                         .then(res => {
                             console.log({status: res.status, message: res.statusText})
                             setProjects(res.data);

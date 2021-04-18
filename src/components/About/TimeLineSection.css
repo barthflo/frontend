@@ -1,0 +1,48 @@
+.timeline-section h2 {
+	font-family: var(--secondary-font);
+	font-weight: 600;
+	color: var(--color-medium);
+	font-size: 3em;
+}
+.timeline-main-wrapper {
+	padding: 0;
+}
+
+.timeline-circle,
+.timeline-vertical-circle div {
+	border-radius: 0 !important;
+	transform: rotateZ(45deg) !important;
+	border-width: 6px;
+	border-color: transparent !important;
+}
+
+.timeline-circle::after,
+.timeline-vertical-circle div::after {
+	border-radius: 0 !important;
+	width: 0.9em;
+	height: 0.9em;
+}
+
+.timeline-item-title {
+	transform: translateY(0px);
+	color: var(--color-dark);
+}
+
+.timeline-item-title.active {
+	background: transparent !important;
+	color: var(--secondary-color) !important;
+}
+
+.timeline-card-content {
+	background: transparent !important;
+}
+
+.card-title {
+	font-family: var(--secondary-font);
+	font-weight: 500 !important;
+	color: var(--color-dark) !important;
+}
+
+.card-description {
+	font-family: var(--secondary-font);
+}

@@ -26,7 +26,7 @@ const Home = () => {
 
     return (
         <main className="home-page d-flex justify-content-center align-items-center w-100" >
-            <section className="px-4 pb-sm-4 d-flex flex-column justify-content-center justify-content-sm-end align-items-start align-items-sm-center w-100 h-100">
+            <section className="px-4 pb-sm-5 pr-sm-5 d-flex flex-column justify-content-center justify-content-sm-end align-items-start align-items-sm-center w-100 h-100">
                 {greetings.map((greeting, index) => 
                     <h2 
                         key={index} 

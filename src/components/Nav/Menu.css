@@ -1,12 +1,14 @@
 .nav-container{
     height: fit-content;
     z-index:10;
+    transition: .3s ease-in-out;
 }
 
 .nav-background{
     background-image: url('http://localhost:3000/assets/mountains.webp');
     background-size:cover;
     transition: .3s ease-in-out;
+    opacity:1;
 }
 .menu{
     width: 100vw;
@@ -31,10 +33,6 @@
     color: var(--secondary-color) !important;
     font-weight: var(--font-normal);
     text-decoration:wavy;
-}
-
-@media screen and (min-width : 576px){
-    
 }
 
 @media screen and (min-width : 768px){

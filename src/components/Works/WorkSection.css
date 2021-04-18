@@ -1,3 +1,8 @@
+.work-section{
+    background:var(--color-light);
+    position:relative;
+}
+
 .work-section h3, .work-section h4{
     font-family:var(--secondary-font);
     text-align:center;

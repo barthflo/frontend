@@ -2,56 +2,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
 :root {
-  --main-font : "Playfair", serif;
-  --secondary-font: "Roboto", sans-serif;
-  --font-light : 300;
-  --font-normal : 700;
-  --font-heavy : 900;
-  --color-light: #F1F0F2;
-  --color-medium : #585864;
-  --color-dark : #052326; 
-  --secondary-color : #BF3326;
-  --secondary-color-dark : #733B36;
-  --spacing : 8px;
-  --spacing-medium : calc(var(--spacing) * 2);
-  --spacing-large : calc(var(--spacing) * 4);
+	--main-font: 'Playfair', serif;
+	--secondary-font: 'Roboto', sans-serif;
+	--font-light: 300;
+	--font-normal: 700;
+	--font-heavy: 900;
+	--color-light: #f1f0f2;
+	--color-medium: #585864;
+	--color-dark: #052326;
+	--secondary-color: #bf3326;
+	--secondary-color-dark: #733b36;
+	--spacing: 8px;
+	--spacing-medium: calc(var(--spacing) * 2);
+	--spacing-large: calc(var(--spacing) * 4);
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-light) !important;
+	background-color: var(--color-light) !important;
+	overflow-x: hidden;
 }
-.page-title{
-  font-family:var(--primary-font);
-  font-size: 1.3em;
-  font-weight:var(--font-light);
-  position:absolute;
-  top:136px;
-  left:50%;
-  transform: translateX(-50%);
-  margin:0;
-  background:var(--color-light);
-  color: var(--color-dark);
-  z-index:10;
-  text-transform:uppercase;
-}
-
-@media screen and (min-width:576px){
-  .page-title{
-    position:fixed;
-    transform: none;
-    left:3%;
-  }
+.page-title {
+	font-family: var(--primary-font);
+	font-size: 1.3em;
+	font-weight: var(--font-light);
+	position: absolute;
+	top: 130px;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	background: var(--color-light);
+	color: var(--color-dark);
+	z-index: 10;
+	text-transform: uppercase;
 }
 
-
-
+@media screen and (min-width: 768px) {
+	.page-title {
+		top: 72px;
+	}
+}

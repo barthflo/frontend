@@ -1,0 +1,85 @@
+.work-section{
+    background:var(--color-light);
+    position:relative;
+}
+
+.work-section h3, .work-section h4{
+    font-family:var(--secondary-font);
+    text-align:center;
+}
+
+.work-section h3{
+    font-size:3em;
+    color: var(--color-medium);
+    font-weight: var(--font-heavy);
+}
+
+.work-section h4{
+    font-size:2em;
+    color: var(--color-dark);
+}
+
+.work-section p{
+    font-family:var(--secondary-font);
+    font-size:1em;
+    font-weight: var(--font-light);
+    text-align:justify;
+    color: var(--color-dark);
+}
+
+.work-section .device-wrapper{
+    margin-bottom: var(--spacing-medium);
+}
+.work-section .button-project {
+    display: inline-flex;
+    height: 40px;
+    width: 150px;
+    border: 2px solid var(--color-medium);
+    margin: 0px 20px 20px;
+    color: var(--color-medium);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .8em;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: var(--secondary-font);
+  }
+  
+ .work-section .button-project a {
+    color: var(--color-medium);
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all .45s ease-Out;
+  }
+
+  .work-section #underline {
+    width: 100%;
+    height: 2.5px;
+    margin-top: 15px;
+    align-self: flex-end;
+    left: -200px;
+    background: var(--color-medium);
+    position: absolute;
+    transition: all .3s ease-Out;
+    bottom: 0;
+  }
+  
+  .work-section .button-project:hover #underline {
+    left: 0;
+  }
+@media screen and (min-width:576px){
+    /* .work-section .project-description{
+        width:50%;
+    } */
+    .work-section .device-wrapper {
+        width:calc(100vw / 3);
+        max-width:unset;
+        padding: 0 var(--spacing-medium);
+    }
+}

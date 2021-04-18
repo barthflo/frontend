@@ -1,0 +1,63 @@
+.nav-container{
+    height: fit-content;
+    z-index:10;
+    transition: .3s ease-in-out;
+}
+
+.nav-background{
+    background-image: url('http://localhost:3000/assets/mountains.webp');
+    background-size:cover;
+    transition: .3s ease-in-out;
+    opacity:1;
+}
+.menu{
+    width: 100vw;
+}
+
+.menu li{
+    font-family: var(--main-font);
+    font-weight:400;
+    font-size:1em;
+    text-transform: uppercase;
+}
+
+.menu li a{
+    color: var(--color-light);
+}
+
+.menu li a:hover{
+    color:var(--color-light);
+}
+
+.menu-item-active a{
+    color: var(--secondary-color) !important;
+    font-weight: var(--font-normal);
+    text-decoration:wavy;
+}
+
+@media screen and (min-width : 768px){
+    .nav-container{
+        height:100px;
+    }
+    .menu{
+        width:75%;
+    }
+    .menu li:last-of-type{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        opacity:0;
+        width:calc(var(--spacing-large) * 2);
+        height:calc(var(--spacing-large) * 2);
+        transform: .3s ease-in;
+        background:black;
+    }
+    
+    .menu li:last-of-type:hover{
+        opacity:1;
+        transform: .3s ease-in;
+    }
+    .menu li:last-of-type a, .menu li:last-of-type a:hover{
+        color:var(--color-light);
+    }
+}

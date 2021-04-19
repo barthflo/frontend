@@ -16,7 +16,4 @@
 	.banner-image {
 		height: 96px;
 	}
-	.banner-image img {
-		height: fit-content;
-	}
 }

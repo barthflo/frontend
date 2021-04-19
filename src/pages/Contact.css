@@ -1,6 +1,20 @@
-.contact-page{
-    min-height:100vh;
-    z-index:0;
-    position:absolute;
-    top:0;
+.contact-page {
+	min-height: 100vh;
+	z-index: 0;
+	position: absolute;
+	top: 0;
+}
+
+.contact-page section {
+	background: var(--color-light);
+	position: relative;
+}
+
+@media (min-width: 576px) {
+	.contact-page section {
+		min-height: calc(100vh - 100px);
+	}
+	.social {
+		width: 33%;
+	}
 }

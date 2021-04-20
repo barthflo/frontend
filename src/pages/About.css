@@ -3,6 +3,7 @@
 	z-index: 0;
 	position: absolute;
 	top: 0;
+	background: var(--color-light);
 }
 
 .about-section {
@@ -10,7 +11,7 @@
 	background: var(--color-light);
 	position: relative;
 	overflow: hidden;
-	min-height: calc(100vh - 160px);
+	min-height: inherit;
 }
 
 .about-description {
@@ -52,8 +53,4 @@
 	.about-description {
 		width: 50%;
 	}
-}
-
-.input-test {
-	border: green;
 }

@@ -35,7 +35,7 @@ const Home = () => {
 				<title>Home - Flo Barth Web Developer</title>
 				<meta
 					name="description"
-					content="Welcome to my portfolio. I am a full stack developper and site creator with experiences in JS, PHP and Python"
+					content="Welcome to my portfolio. I am a full stack developper and site creator with experience in JS, PHP and Python"
 				/>
 			</Helmet>
 			<main className="home-page d-flex justify-content-center align-items-center w-100">

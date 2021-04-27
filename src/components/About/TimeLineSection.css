@@ -11,11 +11,16 @@
 .timeline-circle,
 .timeline-vertical-circle div {
 	border-radius: 0 !important;
-	transform: rotateZ(45deg) !important;
+	transform: rotateZ(0deg) !important;
 	border-width: 6px;
 	border-color: transparent !important;
 }
 
+.timeline-circle.active,
+.timeline-vertical-circle div.active {
+	transform: rotateZ(45deg) !important;
+	transition: 0.2s ease-in-out;
+}
 .timeline-circle::after,
 .timeline-vertical-circle div::after {
 	border-radius: 0 !important;
@@ -30,7 +35,7 @@
 
 .timeline-item-title.active {
 	background: transparent !important;
-	color: var(--secondary-color) !important;
+	color: #fcb591 !important;
 }
 
 .timeline-card-content {

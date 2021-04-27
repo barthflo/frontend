@@ -9,7 +9,7 @@ import 'react-responsive-carousel/lib/styles/carousel.css';
 
 const WorkSection = ({ project }) => {
 	return (
-		<section className="work-section d-flex flex-column align-items-center p-3">
+		<section className="work-section d-flex flex-column align-items-center justify-content-around p-3">
 			<Parallax x={[5, 0]} y={[-50, -20]}>
 				<h3 className="mt-4 mb-5">{project.title}</h3>
 			</Parallax>

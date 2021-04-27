@@ -1,45 +1,74 @@
-.home-page{
-    height:100vh;
-    max-height:100vh;
-    overflow: hidden;
-    z-index:0;
-    position:absolute;
-    top:0;
-    background-image: url("https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067_960_720.png");
-    background-position: center;
-    background-size: cover;
+.home-page {
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	background-image: var(--background);
+	background-position: center;
+	background-size: cover;
 }
 
-.home-page h2{
-    font-family:var(--main-font);
-    font-weight: var(--font-heavy);
-    font-size: 3.5em;
-    color: var(--color-medium);
-    width:100%;
-    text-align:center;
-    cursor: pointer;
+.home-page h2 {
+	font-family: var(--main-font);
+	font-weight: var(--font-heavy);
+	font-size: 3.5em;
+	color: var(--primary-color-light);
+	width: auto;
+	text-align: center;
+	cursor: pointer;
 }
 
-.home-page h2:nth-last-child(odd){
-    color:var(--color-light);
+.home-page h2:nth-last-child(odd) {
+	color: var(--primary-color);
 }
 
-.home-page h2:nth-last-child(even){
-    font-weight:bold;
-}
+/* .home-page h2:nth-last-child(even) {
+	font-weight: bold;
+} */
 
 .home-page a {
-    color : inherit;
+	color: inherit;
+	transition: 0.5s ease-in-out;
 }
 
-.home-page a:hover{
-    text-decoration: none;
-    color: var(--secondary-color);
+.home-page a:hover {
+	text-decoration: none;
+	color: var(--complementary-color);
+	transition: 0.5s ease-in-out;
 }
 
-@media screen and (min-width: 576px){
-    .home-page h2{
-        font-size: 6.5vw;
-        text-align:right;
-    }
+.fade-enter {
+	opacity: 0;
+}
+
+.fade-enter-active {
+	opacity: 1;
+	transition: opacity 300ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.fade-exit {
+	opacity: 1;
+}
+
+.fade-exit-active {
+	opacity: 0;
+	transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media screen and (min-width: 768px) {
+	.home-page {
+		background-size: 100% 100%;
+		animation: var(--background-animation) 5s ease-in-out infinite alternate;
+		-webkit-animation: var(--background-animation) 5s ease-in-out infinite
+			alternate;
+		-moz-animation: var(--background-animation) 5s ease-in-out infinite
+			alternate;
+	}
+
+	.home-page h2 {
+		font-size: 5em;
+		text-align: right;
+	}
 }

@@ -1,0 +1,33 @@
+.contact h3,
+.social h3,
+.contact h4 {
+	color: var(--color-medium);
+	font-weight: var(--font-heavy);
+	font-family: var(--secondary-font);
+}
+
+.contact h3 {
+	font-size: 3em;
+}
+
+.contact h4,
+.social h3 {
+	font-size: 1.5em;
+}
+
+.social img {
+	width: 40px;
+	height: 40px;
+	object-fit: scale-down;
+}
+
+.contact p {
+	font-family: var(--main-font);
+	color: var(--secondary-color-dark);
+}
+
+@media (min-width: 575px) {
+	#contactForm .button-form {
+		width: 150px;
+	}
+}

@@ -90,7 +90,7 @@ const TimeLineSection = () => {
 					allowDynamicUpdate
 					// mode="VERTICAL"
 					mode={window.innerWidth < 768 ? 'VERTICAL' : 'HORIZONTAL'}
-					theme={{ primary: '#34343b', secondary: '#bf3326' }}
+					theme={{ primary: '#34343b', secondary: '#fcb591 ' }}
 					onScrollEnd
 				></Chrono>
 				{/* </Parallax> */}

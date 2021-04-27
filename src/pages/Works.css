@@ -1,6 +1,8 @@
-.works-page{
-    min-height:100vh;
-    z-index:0;
-    position:absolute;
-    top:0;
+.works-page {
+	min-height: 100vh;
+	/* z-index: 0; */
+	/* position: absolute; */
+	/* top: 0; */
+	/* z-index: 10000; */
+	background: var(--color-light);
 }

@@ -19,7 +19,7 @@ const NavContainer = () => {
 	return (
 		<div
 			className={
-				'nav-container d-flex justify-content-center align-items-center flex-wrap justify-content-sm-around w-100 pb-4 pt-3 position-fixed mt-0' +
+				'nav-container d-flex justify-content-center align-items-center flex-wrap justify-content-sm-around w-100 pb-4 pt-3 position-fixed ' +
 				(background && showMenu ? ' nav-background' : ' ')
 			}
 			onMouseLeave={() => setShowMenu(false)}

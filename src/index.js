@@ -1,18 +1,27 @@
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import SnackbarProvider from 'react-simple-snackbar';
+import { AuthProvider } from './contexts/AuthContext';
+import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
-  <ParallaxProvider>
-    <Router>
-      <App />
-    </Router>
-  </ParallaxProvider>,
-  document.getElementById('root')
+	<Router>
+		<CookiesProvider>
+			<AuthProvider>
+				<SnackbarProvider>
+					<ParallaxProvider>
+						<App />
+					</ParallaxProvider>
+				</SnackbarProvider>
+			</AuthProvider>
+		</CookiesProvider>
+	</Router>,
+	document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

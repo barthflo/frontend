@@ -6,22 +6,34 @@ import './Home.css';
 
 const Home = () => {
 	const [greetings, setGreetings] = useState([
-		'Hi.',
-		'My Name Is Flo',
-		"& I'm A Full Stack Developper!",
+		"I'm Flo",
+		'Full Stack',
+		'Developper!',
 	]);
 	const replaceGreetings = (index) => {
 		switch (index) {
 			case 0:
-				greetings[0] = <Link to="/works">Projects</Link>;
+				greetings[0] = (
+					<Link to="/works" title="to works page">
+						Projects
+					</Link>
+				);
 				setGreetings([...greetings], greetings[0]);
 				break;
 			case 1:
-				greetings[1] = <Link to="/about">About</Link>;
+				greetings[1] = (
+					<Link to="/about" title="to about page">
+						About
+					</Link>
+				);
 				setGreetings([...greetings], greetings[1]);
 				break;
 			case 2:
-				greetings[2] = <Link to="/contact">Contact</Link>;
+				greetings[2] = (
+					<Link to="/contact" title="to contact page">
+						Contact
+					</Link>
+				);
 				setGreetings([...greetings], greetings[2]);
 				break;
 			default:
@@ -39,9 +51,9 @@ const Home = () => {
 				/>
 			</Helmet>
 			<main className="home-page d-flex justify-content-center align-items-center w-100">
-				<section className="mb-5 mb-sm-0 px-4 pb-sm-5 pr-sm-5 d-flex flex-column justify-content-end justify-content-sm-end align-items-center align-items-sm-end w-100 h-100">
+				<section className="mb-5 mb-sm-0 px-4 pb-sm-5 pr-sm-5 d-flex flex-column justify-content-end align-items-center align-items-md-end w-100 h-100">
 					{greetings.map((greeting, index) => (
-						<SwitchTransition mode="out-in">
+						<SwitchTransition key={index} mode="out-in">
 							<CSSTransition
 								classNames="fade"
 								addEndListener={(node, done) => {
@@ -50,7 +62,6 @@ const Home = () => {
 								key={greeting}
 							>
 								<h2
-									key={index}
 									onMouseEnter={(e) =>
 										window.innerWidth > 768 && replaceGreetings(index)
 									}

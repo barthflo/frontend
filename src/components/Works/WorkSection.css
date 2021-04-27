@@ -1,5 +1,6 @@
 .work-section {
 	background: var(--color-light);
+	min-height: 100vh;
 	position: relative;
 }
 

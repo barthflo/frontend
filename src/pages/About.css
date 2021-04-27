@@ -15,7 +15,7 @@
 }
 
 .about-description {
-	font-family: var(--main-font);
+	font-family: var(--secondary-font);
 	font-size: 1.1em;
 	color: var(--color-medium);
 	font-style: italic;

@@ -8,7 +8,6 @@ import './Works.css';
 
 const Works = () => {
 	const [projects, setProjects] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
 		const fetchProjects = async () => {
 			await Axios.get(`${BACKEND}/projects`)
@@ -21,8 +20,8 @@ const Works = () => {
 				});
 		};
 		(async () => {
+			window.scrollTo(0, 0);
 			await fetchProjects();
-			setIsLoading(false);
 		})();
 	}, []);
 
@@ -37,19 +36,15 @@ const Works = () => {
 			</Helmet>
 
 			<main className="works-page w-100 pb-5">
-				{!isLoading && (
-					// 	'Loading ....'
-					// ) : (
-					<>
-						<BannerImage
-							backgroundImage={`${FRONTEND}/assets/mountains.webp`}
-						/>
-						<h2 className="page-title">Works</h2>
-						{projects.map((project, index) => (
-							<WorkSection key={index} project={project} />
-						))}
-					</>
-				)}
+				<BannerImage
+					backgroundImage={`${FRONTEND}/assets/abstractsquares.png`}
+				/>
+				<>
+					<h2 className="page-title">Works</h2>
+					{projects.map((project, index) => (
+						<WorkSection key={index} project={project} />
+					))}
+				</>
 			</main>
 		</>
 	);

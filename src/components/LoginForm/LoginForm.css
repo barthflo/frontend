@@ -1,0 +1,22 @@
+#loginForm {
+	width: 100vw;
+	height: 50vh;
+	background: var(--color-light);
+	box-shadow: 0px 2px 5px 2px #0f0e0e87;
+}
+
+#loginForm h2 {
+	font-size: 1.9em;
+	cursor: default;
+	color: var(--color-dark);
+	font-weight: 900;
+	font-family: var(--secondary-font);
+	border-bottom: 1px solid var(--primary-color);
+}
+
+@media (min-width: 768px) {
+	#loginForm {
+		width: 450px;
+		border-radius: 2px;
+	}
+}

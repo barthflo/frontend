@@ -10,31 +10,23 @@ import './About.css';
 const About = () => {
 	const [about, setAbout] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [profilePic, setProfilePic] = useState([]);
 	useEffect(() => {
 		const fetchAbout = async () => {
 			await Axios.get(`${BACKEND}/about`)
 				.then((res) => {
 					console.log({ status: res.status, message: res.statusText });
-					setAbout(res.data[0]);
-				})
-				.catch((err) => console.log(err));
-		};
-		const fetchPic = async () => {
-			await Axios.get(`${BACKEND}/about/profile-pic`)
-				.then((res) => {
-					console.log({ status: res.status, message: res.statusText });
-					setProfilePic(res.data[0]);
+					setAbout(res.data);
+					setIsLoading(false);
 				})
 				.catch((err) => console.log(err));
 		};
 		(async () => {
+			window.scrollTo(0, 0);
 			await fetchAbout();
-			await fetchPic();
-			setIsLoading(false);
 		})();
 	}, []);
 
+	console.log(isLoading, about);
 	return (
 		<>
 			<Helmet>
@@ -45,13 +37,15 @@ const About = () => {
 				/>
 			</Helmet>
 			<main className="about-page w-100">
-				<BannerImage backgroundImage={`${FRONTEND}/assets/mountains.webp`} />
+				<BannerImage
+					backgroundImage={`${FRONTEND}/assets/abstractsquares.png`}
+				/>
 				<h2 className="page-title">About Me</h2>
 				{!isLoading && (
 					// 	'Loading....'
 					// ) : (
 					<>
-						<AboutSection about={about} profilePic={profilePic} />
+						<AboutSection about={about} />
 						<TimeLineSection />
 					</>
 				)}

@@ -5,7 +5,7 @@
 	z-index: 0;
 	position: absolute;
 	top: 0;
-	background-image: url('https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067_960_720.png');
+	background-image: var(--background);
 	background-position: center;
 	background-size: cover;
 }
@@ -14,19 +14,19 @@
 	font-family: var(--main-font);
 	font-weight: var(--font-heavy);
 	font-size: 3.5em;
-	color: var(--color-medium);
+	color: var(--primary-color-light);
 	width: auto;
 	text-align: center;
 	cursor: pointer;
 }
 
 .home-page h2:nth-last-child(odd) {
-	color: var(--color-light);
+	color: var(--primary-color);
 }
 
-.home-page h2:nth-last-child(even) {
+/* .home-page h2:nth-last-child(even) {
 	font-weight: bold;
-}
+} */
 
 .home-page a {
 	color: inherit;
@@ -35,7 +35,7 @@
 
 .home-page a:hover {
 	text-decoration: none;
-	color: var(--secondary-color);
+	color: var(--complementary-color);
 	transition: 0.5s ease-in-out;
 }
 
@@ -57,9 +57,18 @@
 	transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
+	.home-page {
+		background-size: 100% 100%;
+		animation: var(--background-animation) 5s ease-in-out infinite alternate;
+		-webkit-animation: var(--background-animation) 5s ease-in-out infinite
+			alternate;
+		-moz-animation: var(--background-animation) 5s ease-in-out infinite
+			alternate;
+	}
+
 	.home-page h2 {
-		font-size: 6.5vw;
+		font-size: 5em;
 		text-align: right;
 	}
 }

@@ -13,6 +13,10 @@
 	height: fit-content;
 	transition: 0.3s ease-in-out;
 	opacity: 1;
+	--webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .menu {

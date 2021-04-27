@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './LoginForm.css';
 import { useForm } from 'react-hook-form';
@@ -9,7 +9,7 @@ import { BACKEND } from '../../endpoints';
 
 const LoginForm = () => {
 	const history = useHistory();
-	const { setUser, user } = useAuth();
+	const { setUser } = useAuth();
 	const {
 		register,
 		handleSubmit,
@@ -64,9 +64,6 @@ const LoginForm = () => {
 			});
 	};
 
-	// useEffect(() => {
-	// 	console.log(user);
-	// }, [user]);
 	return (
 		<form
 			id="loginForm"

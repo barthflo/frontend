@@ -18,7 +18,7 @@ const Contact = () => {
 			</Helmet>
 			<main className="contact-page w-100">
 				<BannerImage
-					backgroundImage={`${FRONTEND}/assets/abstractsquares.png`}
+					backgroundImage={`${FRONTEND}/assets/abstractsquares.jpg`}
 				/>
 				<h2 className="page-title">Contact me</h2>
 				<div className="d-flex flex-column flex-sm-row">

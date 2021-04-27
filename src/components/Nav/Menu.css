@@ -15,6 +15,14 @@
 	opacity: 1;
 }
 
+.show {
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
 .menu {
 	width: 100vw;
 }

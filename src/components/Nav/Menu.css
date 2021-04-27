@@ -1,17 +1,13 @@
 .nav-container {
 	height: fit-content;
-	/* min-height: 150px; */
 	z-index: 11;
-	/* transition: 0.3s ease-in-out; */
 }
 
 .nav-background {
 	background-image: var(--background);
-	/* background: red; */
 	background-size: cover;
 	background-position: center;
 	height: 194px;
-	/* transition: 0.3s ease-in-out; */
 	opacity: 1;
 }
 

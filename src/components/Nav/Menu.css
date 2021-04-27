@@ -15,11 +15,11 @@
 	opacity: 1;
 }
 
-.show {
+.nav-background.show {
 	display: block;
 }
 
-.hidden {
+.nav-background.hidden {
 	display: none;
 }
 

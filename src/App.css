@@ -20,7 +20,7 @@
 	--spacing-medium: calc(var(--spacing) * 2);
 	--spacing-large: calc(var(--spacing) * 4);
 	/* --background: url('http://localhost:3000/assets/abstractsquares.png'); */
-	--background: url('https://flobarth-webdev.netlify.app/assets/abstractsquares.png');
+	--background: url('https://flobarth-webdev.netlify.app/assets/abstractsquares.jpg');
 
 	--background-animation: animatedBackground;
 }

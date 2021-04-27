@@ -37,7 +37,7 @@ const Works = () => {
 
 			<main className="works-page w-100 pb-5">
 				<BannerImage
-					backgroundImage={`${FRONTEND}/assets/abstractsquares.png`}
+					backgroundImage={`${FRONTEND}/assets/abstractsquares.jpg`}
 				/>
 				<>
 					<h2 className="page-title">Works</h2>

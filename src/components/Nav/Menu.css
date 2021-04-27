@@ -10,7 +10,7 @@
 	/* background: red; */
 	background-size: cover;
 	background-position: center;
-	height: fit-content;
+	height: 194px;
 	transition: 0.3s ease-in-out;
 	opacity: 1;
 	--webkit-backface-visibility: hidden;
@@ -51,6 +51,7 @@
 	.nav-background {
 		background-size: fill;
 		background-position: top;
+		height: 104px;
 	}
 	.menu {
 		width: 75%;

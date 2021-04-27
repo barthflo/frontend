@@ -18,13 +18,14 @@ const NavContainer = () => {
 	};
 	window.addEventListener('scroll', position);
 
+	console.log(location.pathname);
 	return (
 		<div
 			className={
 				'nav-container  d-flex justify-content-center align-items-center flex-wrap justify-content-sm-around w-100 pb-4 pt-3 position-fixed ' +
-				(background && showMenu && !location.pathname === '/')
+				(background && showMenu && !location.pathname === '/'
 					? ' nav-background'
-					: ' '
+					: ' ')
 			}
 			onMouseLeave={() => setShowMenu(false)}
 		>

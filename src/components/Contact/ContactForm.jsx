@@ -1,41 +1,50 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { RiSendPlaneFill as SendIcon } from 'react-icons/ri';
 import './ContactForm.css';
 import emailjs, { init } from 'emailjs-com';
+import { useSnackbar } from 'react-simple-snackbar';
 init('user_tho81D94A14QYrTqlflOC');
 
 const ContactForm = () => {
+	const options = {
+		position: 'bottom-right',
+		style: {
+			background: 'var(--primary-color-dark)',
+			color: 'var(--color-light)',
+			fontFamily: 'var(--secondary-font)',
+			fontSize: '.8em',
+			fontWeight: 600,
+			textTransform: 'uppercase',
+			boxShadow: '2px 2px 1px -2px #585864',
+			letterSpacing: 1.5,
+			border: 'none',
+			borderRadius: 0,
+			padding: 0,
+			textAlign: 'center',
+		},
+		closeStyle: {
+			color: 'var(--color-light)',
+		},
+	};
+	const [openSnackbar] = useSnackbar(options);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm();
-	// const [error, setError] = useState({
-	// 	name: null,
-	// 	email: null,
-	// 	object: null,
-	// 	message: null,
-	// });
-	const [values, setValues] = useState({
+
+	const values = {
 		name: '',
 		email: '',
 		object: '',
 		message: '',
-	});
-
-	console.log(errors);
-	// const handleChange = (e) => {
-	// 	if (e.target.value === '') {
-	// 		setError({ ...error, [e.target.name]: 'Required field' });
-	// 	} else {
-	// 		setError({ ...error, [e.target.name]: null });
-	// 	}
-	// 	setValues({ ...values, [e.target.name]: e.target.value });
-	// };
+	};
 
 	const onSubmit = (data, e) => {
 		console.log(data);
+		openSnackbar('Sending your message...');
 		emailjs
 			.send('service_kdrq9sg', 'template_16lw92i', {
 				from_name: data.name,
@@ -46,14 +55,18 @@ const ContactForm = () => {
 			})
 			.then((res) => {
 				console.log(res);
-				e.target.reset();
+				openSnackbar('Your message has been sent!');
+				reset();
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => {
+				console.log(err);
+				openSnackbar('An error has occured. Please try again');
+			});
 	};
 
 	console.log(values);
 	return (
-		<section className="contact flex-sm-grow-1 d-flex flex-column justify-content-around px-5 pt-5 pb-2 p-sm-5 ">
+		<section className="contact flex-sm-grow-1 d-flex flex-column justify-content-around px-4 pt-5 pb-2 p-sm-5 ">
 			<div>
 				<h3 className="text-center mb-4">Having a question?</h3>
 				<h4 className="text-left mb-4">
@@ -157,7 +170,11 @@ const ContactForm = () => {
 					<div className="square mr-2"></div>
 					{errors.message && <p className="form-error-label">Required field</p>}
 				</div>
-				<button type="submit" className="button-project align-self-end">
+				<button
+					type="submit"
+					className="button-form align-self-end"
+					title="Send message"
+				>
 					<div id="underline"></div>
 					Send
 					<SendIcon />

@@ -10,6 +10,7 @@ import './About.css';
 const About = () => {
 	const [about, setAbout] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+
 	useEffect(() => {
 		const fetchAbout = async () => {
 			await Axios.get(`${BACKEND}/about`)
@@ -26,7 +27,6 @@ const About = () => {
 		})();
 	}, []);
 
-	console.log(isLoading, about);
 	return (
 		<>
 			<Helmet>

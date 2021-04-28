@@ -32,7 +32,7 @@
 .work-section .device-wrapper {
 	margin-bottom: var(--spacing-medium);
 }
-.work-section .button-project {
+.button-project {
 	display: inline-flex;
 	height: 40px;
 	width: 150px;
@@ -55,7 +55,7 @@
 	font-family: var(--secondary-font);
 }
 
-.work-section .button-project a {
+.button-project a {
 	color: var(--color-medium);
 	text-decoration: none;
 	letter-spacing: 1px;
@@ -63,7 +63,7 @@
 	transition: all 0.45s ease-Out;
 }
 
-.work-section #underline {
+#underline {
 	width: 100%;
 	height: 2.5px;
 	margin-top: 15px;
@@ -75,7 +75,7 @@
 	bottom: 0;
 }
 
-.work-section .button-project:hover #underline {
+.button-project:hover #underline {
 	left: 0;
 }
 @media screen and (min-width: 576px) {

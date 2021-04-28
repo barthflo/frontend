@@ -2,6 +2,7 @@ import React from 'react';
 import { Chrono } from 'react-chrono';
 import './TimeLineSection.css';
 import { Parallax } from 'react-scroll-parallax';
+import { BACKEND } from '../../endpoints';
 
 const TimeLineSection = () => {
 	const items = [
@@ -76,12 +77,14 @@ const TimeLineSection = () => {
 
 	return (
 		<section className="timeline-section d-flex flex-column align-items-center m-0">
-			<Parallax x={[-20, 10]} y={[-30, 0]}>
-				<h2 className="align-self-start mb-4">My resume</h2>
+			<Parallax x={[-20, 10]} y={[-30, 0]} className="order-1">
+				<h2 className="align-self-start my-4">My resume</h2>
 			</Parallax>
 
-			<div style={{ width: window.innerWidth < 468 ? '100vw' : '90vw' }}>
-				{/* <Parallax y={[5, -10]}> */}
+			<div
+				style={{ width: window.innerWidth < 468 ? '100vw' : '90vw' }}
+				className="order-2 order-sm-3"
+			>
 				<Chrono
 					items={items}
 					itemWidth={400}
@@ -93,7 +96,15 @@ const TimeLineSection = () => {
 					theme={{ primary: '#34343b', secondary: '#fcb591 ' }}
 					onScrollEnd
 				></Chrono>
-				{/* </Parallax> */}
+			</div>
+			<div className="button-project order-3 order-sm-2">
+				<div id="underline"></div>
+				<a
+					href={`${BACKEND}/storage/CV_FlorentBarth_DéveloppeurWebEtMobile.pdf`}
+					download="CV_Florent_BARTH.pdf"
+				>
+					Download PDF
+				</a>
 			</div>
 		</section>
 	);

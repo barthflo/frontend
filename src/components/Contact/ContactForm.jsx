@@ -43,7 +43,6 @@ const ContactForm = () => {
 	};
 
 	const onSubmit = (data, e) => {
-		console.log(data);
 		openSnackbar('Sending your message...');
 		emailjs
 			.send('service_kdrq9sg', 'template_16lw92i', {
@@ -64,7 +63,6 @@ const ContactForm = () => {
 			});
 	};
 
-	console.log(values);
 	return (
 		<section className="contact flex-sm-grow-1 d-flex flex-column justify-content-around px-4 pt-5 pb-2 p-sm-5 ">
 			<div>

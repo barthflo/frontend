@@ -18,7 +18,6 @@ const NavContainer = () => {
 	};
 	window.addEventListener('scroll', position);
 
-	console.log(location.pathname);
 	return (
 		<div
 			className={

@@ -35,12 +35,9 @@ const TimeLineSection = () => {
 					items={data}
 					itemWidth={400}
 					hideControls={true}
-					slideShow={true}
 					allowDynamicUpdate
-					// mode="VERTICAL"
 					mode={window.innerWidth < 768 ? 'VERTICAL' : 'HORIZONTAL'}
 					theme={{ primary: '#34343b', secondary: '#fcb591 ' }}
-					onScrollEnd
 				></Chrono>
 			</div>
 			<div className="button-project order-3 order-sm-2">

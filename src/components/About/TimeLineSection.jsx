@@ -1,79 +1,25 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Chrono } from 'react-chrono';
 import './TimeLineSection.css';
 import { Parallax } from 'react-scroll-parallax';
 import { BACKEND } from '../../endpoints';
+import Axios from 'axios';
 
 const TimeLineSection = () => {
-	const items = [
-		{
-			title: '6 Jan 1988',
-			cardTitle: 'Saint Jean de Braye - France',
-			cardSubtitle: 'Birth',
-		},
-		{
-			title: 'Jun 2005',
-			cardTitle: 'Lycée Benjamin Franklin - Orléans - France',
-			cardSubtitle: 'A-level in Sciences and Engineering',
-		},
-		{
-			title: 'Sept 2005 - Jun 2008',
-			cardTitle:
-				"Ecole Nationale Supérieure d'Architecture de Lyon - Lyon - France",
-			cardSubtitle: 'Three years towards a bachelor degree in Architecture',
-		},
-		{
-			title: 'Sept 2007 - Aug 2008',
-			cardTitle: 'Unanime Architectes - Lyon - France',
-			cardSubtitle: 'Intern Architect',
-		},
-		{
-			title: 'Sept 2008 - Jun 2009',
-			cardTitle: 'SA2T - VilleFranche-sur-Saone - France',
-			cardSubtitle: 'Technical draftman',
-		},
-		{
-			title: 'Jul 2009 - Jun 2010',
-			cardTitle: 'Bloomsbury Bowling Lanes - London - UK',
-			cardSubtitle: 'Barback',
-		},
-		{
-			title: 'Sept 2010 - Oct 2013',
-			cardTitle: 'Suite Hostel - Budapest - Hungary',
-			cardSubtitle: 'Receptionnist',
-		},
-		{
-			title: 'Oct 2013 - Nov 2016',
-			cardTitle: 'Zigfrid Von Underbelly - Longon - UK',
-			cardSubtitle: 'Bartender and Assistant Manager',
-		},
-		{
-			title: 'Nov 2016 - Jun 2017',
-			cardTitle: 'SomSaa - Longon - UK',
-			cardSubtitle: 'Bartender',
-		},
-		{
-			title: 'Jun 2017 - Jul 2018',
-			cardTitle: 'Giant Robot - London - UK',
-			cardSubtitle: 'Head Bartender',
-		},
-		{
-			title: 'Sept 2018 - Mar 2020',
-			cardTitle: 'World',
-			cardSubtitle: 'Travelling the world without flying',
-		},
-		{
-			title: 'Sept 2020 - Feb 2021',
-			cardTitle: 'Wild Code School - Orléans - France',
-			cardSubtitle: 'Studies in web and web mobile development',
-		},
-		{
-			title: 'Feb 2021 - June 2021',
-			cardTitle: 'Enedis - Orléans - France',
-			cardSubtitle:
-				'Intern Web Developer -  Worked on an internal dashboard for drone monitoring',
-		},
-	];
+	const [data, setData] = useState([]);
+
+	const fetchData = useCallback(async () => {
+		try {
+			const res = await Axios.get(`${BACKEND}/resume`);
+			setData(res.data);
+		} catch (err) {
+			console.log(err.response);
+		}
+	}, []);
+
+	useEffect(() => {
+		fetchData();
+	}, [fetchData]);
 
 	return (
 		<section className="timeline-section d-flex flex-column align-items-center m-0">
@@ -83,10 +29,10 @@ const TimeLineSection = () => {
 
 			<div
 				style={{ width: window.innerWidth < 468 ? '100vw' : '90vw' }}
-				className="order-2 order-sm-3"
+				className="order-2 order-sm-3 mb-4"
 			>
 				<Chrono
-					items={items}
+					items={data}
 					itemWidth={400}
 					hideControls={true}
 					slideShow={true}

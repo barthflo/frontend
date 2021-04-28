@@ -51,7 +51,7 @@ const Home = () => {
 				/>
 			</Helmet>
 			<main className="home-page d-flex justify-content-center align-items-center w-100">
-				<section className="mb-5 mb-sm-0 px-4 pb-sm-5 pr-sm-5 d-flex flex-column justify-content-end align-items-center align-items-md-end w-100 h-100">
+				<section className="mb-5 mb-sm-0 px-4 pb-5 pr-sm-5 d-flex flex-column justify-content-end align-items-center align-items-md-end w-100 h-100">
 					{greetings.map((greeting, index) => (
 						<SwitchTransition key={index} mode="out-in">
 							<CSSTransition

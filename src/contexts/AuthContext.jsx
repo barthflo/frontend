@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useState, useEffect } from 'react';
-import { useCookies } from 'react-cookie';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 	const [user, setAuthUser] = useState({ isVerified: false, user: null });
-	const [cookies, setCookie] = useCookies();
 
 	const setUser = (verified, user) => {
 		setAuthUser({ isVerified: verified, user: user });
@@ -31,7 +29,7 @@ const AuthProvider = ({ children }) => {
 			}
 		}
 	}, [user]);
-	console.log(user);
+
 	return (
 		<AuthContext.Provider value={{ user, setUser }}>
 			{children}

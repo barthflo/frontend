@@ -14,7 +14,7 @@ const AdminHome = () => {
 			</Helmet>
 			<main className="works-page w-100 pb-5">
 				<BannerImage
-					backgroundImage={`${process.env.PUBLIC_URL}/assets/abstractsquares.png`}
+					backgroundImage={`${process.env.PUBLIC_URL}/assets/abstractsquares.jpg`}
 				/>
 			</main>
 		</>

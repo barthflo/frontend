@@ -38,7 +38,7 @@ const About = () => {
 			</Helmet>
 			<main className="about-page w-100">
 				<BannerImage
-					backgroundImage={`${FRONTEND}/assets/abstractsquares.png`}
+					backgroundImage={`${FRONTEND}/assets/abstractsquares.jpg`}
 				/>
 				<h2 className="page-title">About Me</h2>
 				{!isLoading && (

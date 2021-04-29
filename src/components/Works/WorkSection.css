@@ -35,7 +35,8 @@
 .button-project {
 	display: inline-flex;
 	height: 40px;
-	width: 150px;
+	min-width: 150px;
+	width: fit-content;
 	/* border: 2px solid var(--color-medium); */
 	border: none;
 	box-shadow: 2px 2px 2px -2px #585864;

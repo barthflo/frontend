@@ -182,4 +182,7 @@ textarea {
 	.page-title {
 		top: 82px;
 	}
+	.admin {
+		min-height: calc(100vh - 104px);
+	}
 }

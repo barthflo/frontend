@@ -1,0 +1,31 @@
+.home-card {
+	border: none;
+	box-shadow: 2px 2px 2px -2px #585864;
+	transition: 0.3s ease-in-out;
+	position: relative;
+	background-color: var(--color-light);
+}
+
+.home-card h3 {
+	font-family: var(--main-font);
+	color: var(--primary-color-light);
+	position: absolute;
+	top: calc(80% - 40%);
+}
+
+.home-card img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	object-position: 30% 0;
+}
+
+@media (min-width: 768px) {
+	.home-card {
+		width: calc(100% / 3);
+		height: calc(100vh - 104px);
+	}
+	.home-card img {
+		height: 80%;
+	}
+}

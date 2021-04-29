@@ -19,7 +19,7 @@ const TimeLineSection = () => {
 		} catch (err) {
 			console.log(err.response);
 		}
-	}, [data]);
+	}, []);
 
 	useEffect(() => {
 		fetchData();

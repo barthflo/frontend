@@ -6,12 +6,16 @@ import { BACKEND } from '../../endpoints';
 import Axios from 'axios';
 
 const TimeLineSection = () => {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({
+		items: [],
+		pdf: '',
+	});
 
 	const fetchData = useCallback(async () => {
 		try {
 			const res = await Axios.get(`${BACKEND}/resume`);
-			setData(res.data);
+			const pdf = await Axios.get(`${BACKEND}/resume/pdf`);
+			setData({ ...data, items: res.data, pdf: pdf.data.name });
 		} catch (err) {
 			console.log(err.response);
 		}
@@ -32,7 +36,7 @@ const TimeLineSection = () => {
 				className="order-2 order-sm-3 mb-4"
 			>
 				<Chrono
-					items={data}
+					items={data.items}
 					itemWidth={400}
 					hideControls={true}
 					allowDynamicUpdate
@@ -43,7 +47,7 @@ const TimeLineSection = () => {
 			<div className="button-project order-3 order-sm-2">
 				<div id="underline"></div>
 				<a
-					href={`${BACKEND}/storage/CV_FlorentBarth_DéveloppeurWebEtMobile.pdf`}
+					href={`${BACKEND}/storage/${data.pdf}`}
 					download="CV_Florent_BARTH.pdf"
 				>
 					Download PDF

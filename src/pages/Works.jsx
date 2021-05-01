@@ -13,7 +13,7 @@ const Works = () => {
 			await Axios.get(`${BACKEND}/projects`)
 				.then((res) => {
 					console.log({ status: res.status, message: res.statusText });
-					setProjects(res.data);
+					setProjects(res.data.filter((data) => data.published !== false));
 				})
 				.catch((err) => {
 					console.log(err);

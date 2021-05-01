@@ -11,11 +11,8 @@ const AdminHome = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Works - Flo Barth Web Developer</title>
-				<meta
-					name="description"
-					content="Have a look at the different kind of projects I worked on"
-				/>
+				<title>Admin Overview - Flo Barth Web Developer</title>
+				<meta name="description" content="Manage your website content" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">
 				<BannerImage

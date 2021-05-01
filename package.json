@@ -13,6 +13,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-chrono": "^1.9.1",
+    "react-confirm-alert": "^2.7.0",
     "react-cookie": "^4.0.3",
     "react-device-mockups": "^0.1.10",
     "react-dom": "^17.0.1",

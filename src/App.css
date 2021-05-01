@@ -144,6 +144,12 @@ textarea {
 	background: var(--primary-color-dark);
 }
 
+.button-form a,
+.button-form a:hover {
+	color: unset;
+	text-decoration: none;
+}
+
 .button-form:focus {
 	outline: 1px solid var(--primary-color);
 }
@@ -176,6 +182,20 @@ textarea {
 	font-size: 0.8em;
 	color: #c03225 !important;
 	font-style: italic;
+}
+
+.react-confirm-alert-overlay {
+	background: rgba(46, 45, 45, 0.3) !important;
+}
+
+.confirm-alert {
+	color: var(--color-medium);
+	font-family: var(--secondary-font);
+	background: var(--color-light);
+	box-shadow: 0px 0px 5px -2px #585864;
+}
+.confirm-alert h4 {
+	font-family: var(--main-font);
 }
 
 @media screen and (min-width: 768px) {

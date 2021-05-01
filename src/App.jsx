@@ -17,6 +17,34 @@ const routes = [
 	{ path: '/contact', component: Contact, exact: false },
 	{ path: '/login', component: Login, exact: false },
 	{ path: '/admin', component: AdminHome, exact: true, guard: true },
+	{ path: '/admin/projects', component: AdminHome, exact: false, guard: true },
+	{
+		path: '/admin/projects/create',
+		component: AdminHome,
+		exact: false,
+		guard: true,
+	},
+	{
+		path: '/admin/projects/:id',
+		component: AdminHome,
+		exact: false,
+		guard: true,
+	},
+	{
+		path: '/admin/projects/:id/edit',
+		component: AdminHome,
+		exact: false,
+		guard: true,
+	},
+	{ path: '/admin/resume', component: AdminHome, exact: false, guard: true },
+	{
+		path: '/admin/resume/create',
+		component: AdminHome,
+		exact: false,
+		guard: true,
+	},
+
+	{ path: '/admin/bio', component: AdminHome, exact: false, guard: true },
 ];
 
 const App = () => {

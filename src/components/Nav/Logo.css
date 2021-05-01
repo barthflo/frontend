@@ -22,7 +22,7 @@
 }
 
 .logo-inner {
-	top: calc(var(--spacing) / 2);
+	top: calc(var(--spacing) / 1.5);
 }
 
 .logo-inner h1 {

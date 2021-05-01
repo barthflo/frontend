@@ -23,7 +23,7 @@ const AdminHome = () => {
 				/>
 				<div className="admin d-flex flex-column flex-md-row justify-md-content-center py-2">
 					<HomeCard
-						title="Works"
+						title="Projects"
 						photo={`${process.env.PUBLIC_URL}/assets/art.jpeg`}
 						linkTitle="Edit Projects"
 						linkTo="/admin/projects"
@@ -37,7 +37,7 @@ const AdminHome = () => {
 						icon={<RiHistoryLine color="#5b666a" />}
 					/>
 					<HomeCard
-						title="About and Links"
+						title="Bio and Links"
 						photo={`${BACKEND}/storage/profile_pic.jpg`}
 						linkTitle="Edit Bio and Links"
 						linkTo="/admin/bio"

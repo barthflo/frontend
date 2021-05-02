@@ -8,7 +8,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import AdminHome from './pages/AdminHome';
-import AdminWorks from './pages/AdminWorks';
+import AdminWorksList from './pages/AdminWorksList';
+import AdminWorksCreate from './pages/AdminWorksCreate';
 import useAuth from './hooks/useAuth';
 
 const routes = [
@@ -18,10 +19,15 @@ const routes = [
 	{ path: '/contact', component: Contact, exact: false },
 	{ path: '/login', component: Login, exact: false },
 	{ path: '/admin', component: AdminHome, exact: true, guard: true },
-	{ path: '/admin/projects', component: AdminWorks, exact: false, guard: true },
+	{
+		path: '/admin/projects',
+		component: AdminWorksList,
+		exact: true,
+		guard: true,
+	},
 	{
 		path: '/admin/projects/create',
-		component: AdminHome,
+		component: AdminWorksCreate,
 		exact: false,
 		guard: true,
 	},

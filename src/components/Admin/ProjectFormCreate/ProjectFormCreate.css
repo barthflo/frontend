@@ -1,0 +1,35 @@
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	column-gap: 10px;
+	row-gap: 20px;
+	grid-template-areas:
+		'createform createform createform'
+		'catform catform catform'
+		'dropzone dropzone dropzone'
+		'preview preview preview';
+}
+.grid h2 {
+	font-family: var(--secondary-font);
+	color: var(--color-medium);
+	font-weight: 600;
+}
+.project-form {
+	grid-area: createform;
+	background-color: var(--color-light);
+}
+
+.project-form .button-form {
+	width: 150px;
+}
+
+@media (min-width: 768px) {
+	.grid {
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas:
+			'createform createform catform'
+			'dropzone dropzone dropzone'
+			'preview preview preview';
+	}
+}

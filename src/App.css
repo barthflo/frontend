@@ -86,13 +86,15 @@ body {
 }
 
 input,
-textarea {
+textarea,
+.results-container {
 	border: none;
 	box-shadow: 2px 2px 2px -2px #585864;
 	transition: 0.3s ease-in-out;
 	font-family: var(--secondary-font);
 	color: var(--color-medium);
 	font-style: italic;
+	background: var(--color-light);
 }
 
 input:focus,
@@ -124,6 +126,7 @@ textarea {
 .button-form {
 	display: inline-flex;
 	height: 40px;
+	min-width: 150px;
 	width: 100%;
 	font-weight: 600;
 	color: var(--color-light);
@@ -201,6 +204,9 @@ textarea {
 @media screen and (min-width: 768px) {
 	.page-title {
 		top: 82px;
+	}
+	.button-form {
+		width: unset;
 	}
 	.admin {
 		min-height: calc(100vh - 104px);

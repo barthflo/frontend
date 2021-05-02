@@ -1,0 +1,7 @@
+.dropzone {
+	grid-area: dropzone;
+}
+
+.previews {
+	grid-area: preview;
+}

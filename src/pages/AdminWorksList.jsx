@@ -6,7 +6,8 @@ import Axios from 'axios';
 import { BACKEND } from '../endpoints';
 
 const titles = ['Title', 'Published', 'Actions'];
-const AdminHome = () => {
+
+const AdminWorksList = () => {
 	const [projects, setProjects] = useState([]);
 
 	const fetchProjects = useCallback(async () => {
@@ -25,11 +26,26 @@ const AdminHome = () => {
 		}
 	}, [setProjects]);
 
+	const handleCheckBox = async (value, id) => {
+		try {
+			const res = await Axios.put(
+				`${BACKEND}/projects/${id}`,
+				{ published: value },
+				{
+					withCredentials: true,
+				},
+			);
+			projects.find((project) => project.id === id).published =
+				res.data.update.published;
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	useEffect(() => {
 		fetchProjects();
 	}, [fetchProjects]);
 
-	console.log(projects);
 	return (
 		<>
 			<Helmet>
@@ -46,6 +62,7 @@ const AdminHome = () => {
 						rows={projects}
 						prefix="projects"
 						setProjects={setProjects}
+						handleCheckBox={handleCheckBox}
 					/>
 				</section>
 			</main>
@@ -53,4 +70,4 @@ const AdminHome = () => {
 	);
 };
 
-export default AdminHome;
+export default AdminWorksList;

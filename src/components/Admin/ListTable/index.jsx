@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from 'react';
 import { FiEdit as EditIcon } from 'react-icons/fi';
 import { AiOutlineDelete as DeleteIcon } from 'react-icons/ai';
@@ -31,7 +32,7 @@ const options = {
 	},
 };
 
-const ListTable = ({ cols, rows, prefix, setProjects }) => {
+const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
 	const [openSnackbar] = useSnackbar(options);
 
 	const handleConfirm = (id) => {
@@ -68,7 +69,7 @@ const ListTable = ({ cols, rows, prefix, setProjects }) => {
 
 	const handleDelete = async (id) => {
 		try {
-			const res = await Axios.delete(`${BACKEND}/projects/${id}`, {
+			const res = await Axios.delete(`${BACKEND}/${prefix}/${id}`, {
 				withCredentials: true,
 			});
 			openSnackbar(res.data.success);
@@ -97,28 +98,39 @@ const ListTable = ({ cols, rows, prefix, setProjects }) => {
 							return (
 								<tr key={index}>
 									{Object.entries(row)
-										.filter((item) => item[0] !== 'id')
+										// .filter((item) => item[0] !== 'id')
 										.map((item, index) => {
 											if (typeof item[1] === 'boolean') {
+												console.log(item);
 												return (
 													<td key={index}>
 														<input
 															type="checkbox"
 															name="published"
 															id="publishedCheck"
-															value={item[1]}
-															checked={item[1]}
+															// value={item[1]}
+															defaultChecked={item[1]}
+															onChange={(e) => {
+																item[1] = !item[1];
+																console.log(e.target.checked);
+																handleCheckBox(e.target.checked, row.id);
+															}}
 														/>
 													</td>
 												);
 											}
-											return <td key={index}>{item[1]}</td>;
+											if (item[0] !== 'id') {
+												return <td key={index}>{item[1]}</td>;
+											}
 										})}
 									<td>
 										<div className="d-flex justify-content-end">
 											<button className="button-project m-0 mr-1">
 												<div id="underline"></div>
-												<Link to={`${prefix}/${row.id}/edit`} className="p-0">
+												<Link
+													to={`/admin/${prefix}/${row.id}/edit`}
+													className="p-0"
+												>
 													<EditIcon size="1.3em" color="#5b666a" />
 												</Link>
 											</button>
@@ -140,7 +152,7 @@ const ListTable = ({ cols, rows, prefix, setProjects }) => {
 			</div>
 			<button className="button-form mt-2 align-self-end">
 				<div id="underline"></div>
-				<Link to={`${prefix}/create`} className="p-0">
+				<Link to={`/admin/${prefix}/create`} className="p-0">
 					Add a project
 					<IoAddSharp color="f1f0f2" size="1.3em" />
 				</Link>

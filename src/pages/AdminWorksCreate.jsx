@@ -39,42 +39,42 @@ const AdminWorksCreate = () => {
 
 	const onSubmit = async (data) => {
 		console.log(data);
-		// const formData = new FormData();
-		// formData.append('title', data.title);
-		// formData.append('description', data.description);
-		// formData.append('link_url', data.link_url);
-		// formData.append('categories', data.results);
-		// // eslint-disable-next-line array-callback-return
-		// data.files.map((file) => {
-		// 	let filename = file.name.split('.').slice(0, -1).join('.');
-		// 	let extension = file.name.split('.').pop();
+		const formData = new FormData();
+		formData.append('title', data.title);
+		formData.append('description', data.description);
+		formData.append('link_url', data.link_url);
+		formData.append('categories', data.results);
+		// eslint-disable-next-line array-callback-return
+		data.files.map((file) => {
+			let filename = file.name.split('.').slice(0, -1).join('.');
+			let extension = file.name.split('.').pop();
 
-		// 	if (file.width > file.height) {
-		// 		formData.append('filename', filename + '.desktop.' + extension);
-		// 	} else {
-		// 		formData.append('filename', filename + '.mobile.' + extension);
-		// 	}
+			if (file.width > file.height) {
+				formData.append('filename', filename + '.desktop.' + extension);
+			} else {
+				formData.append('filename', filename + '.mobile.' + extension);
+			}
 
-		// 	formData.append('files', file);
-		// });
+			formData.append('files', file);
+		});
 
-		// try {
-		// 	const response = await Axios.post(`${BACKEND}/projects`, formData, {
-		// 		headers: {
-		// 			'Content-Type': 'multipart/form-data',
-		// 		},
-		// 		withCredentials: true,
-		// 		onUploadProgress: (progressEvent) =>
-		// 			setProgress(
-		// 				Math.round((100 * progressEvent.loaded) / progressEvent.total),
-		// 			),
-		// 	});
-		// 	reset();
-		// 	history.push('/admin/projects');
-		// 	console.log(response);
-		// } catch (err) {
-		// 	console.log(err);
-		// }
+		try {
+			const response = await Axios.post(`${BACKEND}/projects`, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+				withCredentials: true,
+				onUploadProgress: (progressEvent) =>
+					setProgress(
+						Math.round((100 * progressEvent.loaded) / progressEvent.total),
+					),
+			});
+			reset();
+			history.push('/admin/projects');
+			console.log(response);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const fetchCategories = useCallback(async () => {

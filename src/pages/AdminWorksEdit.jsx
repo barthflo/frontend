@@ -43,8 +43,8 @@ const AdminWorksEdit = () => {
 		formData.append('description', data.description);
 		formData.append('link_url', data.link_url);
 		formData.append('categories', data.results);
-		// eslint-disable-next-line array-callback-return
 		if (data.files) {
+			// eslint-disable-next-line array-callback-return
 			data.files.map((file) => {
 				let filename = file.name.split('.').slice(0, -1).join('.');
 				let extension = file.name.split('.').pop();

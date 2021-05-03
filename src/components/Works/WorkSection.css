@@ -69,7 +69,7 @@
 	height: 2.5px;
 	margin-top: 15px;
 	align-self: flex-end;
-	left: -200px;
+	left: -1000px;
 	background: var(--color-medium);
 	position: absolute;
 	transition: all 0.3s ease-Out;

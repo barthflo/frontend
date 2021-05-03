@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import AdminHome from './pages/AdminHome';
 import AdminWorksList from './pages/AdminWorksList';
 import AdminWorksCreate from './pages/AdminWorksCreate';
+import AdminWorksEdit from './pages/AdminWorksEdit';
 import useAuth from './hooks/useAuth';
 
 const routes = [
@@ -33,7 +34,7 @@ const routes = [
 	},
 	{
 		path: '/admin/projects/:id/edit',
-		component: AdminHome,
+		component: AdminWorksEdit,
 		exact: false,
 		guard: true,
 	},

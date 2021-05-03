@@ -1,14 +1,8 @@
-/* @media (min-width: 768px) {
-	.categories-form {
-		width: calc(100% / 3);
-	}
-} */
-
 .categories-form {
 	grid-area: catform;
 	box-shadow: 2px 2px 2px -2px #585864;
 	background-color: #e1e1e182;
-	height: fit-content;
+	align-self: stretch;
 }
 
 .categories-form .input-container:first-of-type > div {
@@ -25,6 +19,10 @@
 .categories-form button {
 	width: 100%;
 	margin: 0;
+}
+
+.categories-form .results-container .button-project {
+	width: fit-content !important;
 }
 
 .categories-form .results-container {

@@ -24,9 +24,6 @@ const ProjectFormCreate = ({ errors, register, values }) => {
 				{errors.title && errors.title.type === 'required' && (
 					<p className="form-error-label">Required field</p>
 				)}
-				{/* {errors.title && errors.title.type === 'submit' && (
-					<p className="form-error-label">{errors.title.message}</p>
-				)} */}
 			</div>
 			<div className="input-container d-flex flex-row-reverse align-items-center mb-2 py-3 w-100">
 				<label htmlFor="description" hidden>
@@ -41,16 +38,13 @@ const ProjectFormCreate = ({ errors, register, values }) => {
 					name="description"
 					id="description"
 					placeholder="Description"
-					defaultValue={values.title}
+					defaultValue={values.description}
 					{...register('description', { required: true })}
 				/>
 				<div className="square mr-2"></div>
 				{errors.description && errors.description.type === 'required' && (
 					<p className="form-error-label">Required field</p>
 				)}
-				{/* {errors.description && errors.description.type === 'submit' && (
-					<p className="form-error-label">{errors.description.message}</p>
-				)} */}
 			</div>
 			<div className="input-container d-flex flex-row-reverse align-items-center mb-2 py-3 w-100">
 				<label htmlFor="link_url" hidden>
@@ -72,9 +66,6 @@ const ProjectFormCreate = ({ errors, register, values }) => {
 				{errors.link_url && errors.link_url.type === 'required' && (
 					<p className="form-error-label">Required field</p>
 				)}
-				{/* {errors.url && errors.url.type === 'submit' && (
-					<p className="form-error-label">{errors.url.message}</p>
-				)} */}
 			</div>
 		</section>
 	);

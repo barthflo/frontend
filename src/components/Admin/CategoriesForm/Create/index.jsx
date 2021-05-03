@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import AutoComplete from 'react-autocomplete';
 import { IoAddSharp, IoCloseOutline as RemoveIcon } from 'react-icons/io5';
 import Axios from 'axios';
+import '../CategoriesForm.css';
 
-import './CategoriesForm.css';
-import { BACKEND } from '../../../endpoints';
+import { BACKEND } from '../../../../endpoints';
 
 const CategoriesForm = ({ categories, register, setValue }) => {
 	const [cat, setCat] = useState('');

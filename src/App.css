@@ -86,13 +86,15 @@ body {
 }
 
 input,
-textarea {
+textarea,
+.results-container {
 	border: none;
 	box-shadow: 2px 2px 2px -2px #585864;
 	transition: 0.3s ease-in-out;
 	font-family: var(--secondary-font);
 	color: var(--color-medium);
 	font-style: italic;
+	background: var(--color-light);
 }
 
 input:focus,
@@ -124,6 +126,7 @@ textarea {
 .button-form {
 	display: inline-flex;
 	height: 40px;
+	min-width: 150px;
 	width: 100%;
 	font-weight: 600;
 	color: var(--color-light);
@@ -142,6 +145,12 @@ textarea {
 	border: none;
 	/* background: #c4bdba2e; */
 	background: var(--primary-color-dark);
+}
+
+.button-form a,
+.button-form a:hover {
+	color: unset;
+	text-decoration: none;
 }
 
 .button-form:focus {
@@ -178,10 +187,25 @@ textarea {
 	font-style: italic;
 }
 
+.react-confirm-alert-overlay {
+	background: rgba(46, 45, 45, 0.3) !important;
+}
+
+.confirm-alert {
+	color: var(--color-medium);
+	font-family: var(--secondary-font);
+	background: var(--color-light);
+	box-shadow: 0px 0px 5px -2px #585864;
+}
+.confirm-alert h4 {
+	font-family: var(--main-font);
+}
+
 @media screen and (min-width: 768px) {
 	.page-title {
 		top: 82px;
 	}
+
 	.admin {
 		min-height: calc(100vh - 104px);
 	}

@@ -1,0 +1,46 @@
+.table-container {
+	border: none;
+	box-shadow: 2px 2px 2px -2px #585864;
+	position: relative;
+	background-color: var(--color-light);
+	border-left: 1px solid #e9e7e9;
+}
+
+.table-container .button-project {
+	min-width: unset;
+	width: 35px;
+	height: 35px;
+}
+
+.admin .button-form {
+	width: 150px;
+}
+
+th {
+	/* border-bottom-width: 1px !important; */
+	border-bottom: none !important;
+	font-family: var(--main-font);
+	color: var(--color-medium);
+	font-weight: 400;
+	flex-grow: 0;
+	border-collapse: collapse;
+	text-align: end;
+}
+
+th:first-of-type,
+tr td:first-of-type {
+	text-align: start;
+}
+
+th:last-of-type {
+	width: 100px;
+}
+
+tr {
+	text-align: end;
+	font-family: var(--secondary-font);
+}
+
+td {
+	vertical-align: inherit !important;
+}

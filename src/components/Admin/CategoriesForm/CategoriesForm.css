@@ -1,0 +1,41 @@
+.categories-form {
+	grid-area: catform;
+	box-shadow: 2px 2px 2px -2px #585864;
+	background-color: #e1e1e182;
+	align-self: stretch;
+}
+
+.categories-form .input-container:first-of-type > div {
+	width: 100%;
+	display: flex !important;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+.categories-form input::placeholder,
+.categories-form input {
+	background-color: var(--color-light);
+}
+
+.categories-form button {
+	width: 100%;
+	margin: 0;
+}
+
+.categories-form .results-container .button-project {
+	width: fit-content !important;
+}
+
+.categories-form .results-container {
+	min-height: 200px;
+	position: relative;
+}
+
+.categories-form .result {
+	width: fit-content;
+	height: fit-content;
+	min-width: unset;
+	border-radius: 1px;
+	cursor: default;
+	padding: 2px 5px;
+	margin: 2px;
+}

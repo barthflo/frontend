@@ -113,7 +113,7 @@ const AdminWorksEdit = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Admin Add Work - Flo Barth Web Developer</title>
+				<title>Edit Work - Admin - Flo Barth Web Developer</title>
 				<meta name="description" content="Add a new project" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">

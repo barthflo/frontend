@@ -49,7 +49,7 @@ const AdminWorksList = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Admin Works - Flo Barth Web Developer</title>
+				<title>Works Overview - Admin - Flo Barth Web Developer</title>
 				<meta name="description" content="List of all the projects" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">

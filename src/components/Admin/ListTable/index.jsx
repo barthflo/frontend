@@ -1,9 +1,12 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
 import { FiEdit as EditIcon } from 'react-icons/fi';
-import { AiOutlineDelete as DeleteIcon } from 'react-icons/ai';
+import {
+	AiOutlineDelete as DeleteIcon,
+	AiOutlineRollback as BackIcon,
+} from 'react-icons/ai';
 import { IoAddSharp } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Axios from 'axios';
 import { BACKEND } from '../../../endpoints';
 import { confirmAlert } from 'react-confirm-alert';
@@ -34,6 +37,7 @@ const options = {
 
 const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
 	const [openSnackbar] = useSnackbar(options);
+	const history = useHistory();
 
 	const handleConfirm = (id) => {
 		confirmAlert({
@@ -150,13 +154,22 @@ const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
 					</tbody>
 				</table>
 			</div>
-			<button className="button-form mt-2 align-self-end">
-				<div id="underline"></div>
-				<Link to={`/admin/${prefix}/create`} className="p-0">
-					Add a project
-					<IoAddSharp color="f1f0f2" size="1.3em" />
-				</Link>
-			</button>
+			<div className="align-self-end mt-3">
+				<button className="button-project m-0 mr-3">
+					<div id="underline"></div>
+					<Link to="/admin" className="p-0">
+						Back
+						<BackIcon color="#5b666a" size="1.3em" />
+					</Link>
+				</button>
+				<button className="button-form ">
+					<div id="underline"></div>
+					<Link to={`/admin/${prefix}/create`} className="p-0">
+						Add a project
+						<IoAddSharp color="f1f0f2" size="1.3em" />
+					</Link>
+				</button>
+			</div>
 		</>
 	);
 };

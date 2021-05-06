@@ -1,0 +1,24 @@
+.resume-form {
+	font-family: var(--secondary-font);
+	color: var(--color-medium);
+	background-color: var(--color-light);
+	box-shadow: 2px 2px 2px -2px #585864;
+	background-color: #e1e1e182;
+}
+
+.resume-form h2 {
+	font-weight: 600;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+	background: var(--complementary-color) !important;
+}
+
+.rdrDateDisplayWrapper {
+	padding-top: 0.4rem;
+}
+
+.rdrCalendarWrapper,
+.rdrMonth {
+	width: 100% !important;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import BannerImage from '../components/BannerImage/BannerImage';
-import ProjectFormCreate from '../components/Admin/ProjectFormCreate';
+import ProjectForm from '../components/Admin/ProjectForm';
 import CategoriesForm from '../components/Admin/CategoriesForm/Create';
 import DropZone from '../components/Admin/DropZone';
 import { useForm } from 'react-hook-form';
@@ -108,11 +108,7 @@ const AdminWorksCreate = () => {
 						className="admin grid mb-4"
 						onSubmit={handleSubmit(onSubmit)}
 					>
-						<ProjectFormCreate
-							errors={errors}
-							register={register}
-							values={values}
-						/>
+						<ProjectForm errors={errors} register={register} values={values} />
 						<CategoriesForm
 							register={register}
 							categories={values.categories}

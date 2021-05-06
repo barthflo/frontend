@@ -13,9 +13,11 @@ const TimeLineSection = () => {
 
 	const fetchData = useCallback(async () => {
 		try {
-			const res = await Axios.get(`${BACKEND}/resume`);
+			const resume = await Axios.get(`${BACKEND}/resume`);
+			const items = resume.data.filter((item) => item.published === true);
+
 			const pdf = await Axios.get(`${BACKEND}/resume/pdf`);
-			setData({ ...data, items: res.data, pdf: pdf.data.name });
+			setData({ ...data, items, pdf: pdf.data.name });
 		} catch (err) {
 			console.log(err.response);
 		}

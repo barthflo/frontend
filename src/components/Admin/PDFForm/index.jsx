@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { BACKEND } from '../../../endpoints';
 import DropZone from '../DropZone';
@@ -10,6 +10,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const PDFForm = () => {
 	const [pdf, setPdf] = useState([]);
+	const [optionsPdf, setOptionsPdf] = useState([]);
+	const selectRef = useRef();
+	// const [selected, setSelected] = useState(true);
+	const [update, setUpdate] = useState(null);
 	const [progress, setProgress] = useState(0);
 	const {
 		register,
@@ -18,6 +22,8 @@ const PDFForm = () => {
 		reset,
 		setValue,
 	} = useForm();
+
+	console.log(selectRef.current);
 
 	const progressBar = {
 		position: 'fixed',
@@ -71,6 +77,22 @@ const PDFForm = () => {
 			} catch (err) {
 				console.log(err);
 			}
+		} else if (update) {
+			try {
+				const res = await Axios.put(
+					`${BACKEND}/resume/pdf`,
+					{ id: update.id },
+					{
+						withCredentials: true,
+					},
+				);
+				openSnackbar(res.data.success);
+				fetchAllPdfs();
+				setUpdate(null);
+				selectRef.current.selected = true;
+			} catch (err) {
+				console.log(err);
+			}
 		} else {
 			openSnackbar('You need to upload a new PDF');
 		}
@@ -85,10 +107,23 @@ const PDFForm = () => {
 		}
 	}, []);
 
+	const fetchAllPdfs = useCallback(async () => {
+		try {
+			const res = await Axios.get(`${BACKEND}/resume/pdf-list`, {
+				withCredentials: true,
+			});
+			setOptionsPdf(res.data);
+		} catch (err) {
+			console.log(err);
+		}
+	}, []);
+
 	useEffect(() => {
 		fetchPDF();
-	}, [fetchPDF]);
+		fetchAllPdfs();
+	}, [fetchPDF, fetchAllPdfs]);
 
+	console.log(optionsPdf);
 	return (
 		<>
 			<div className="progress-bar" style={progressBar}></div>
@@ -109,6 +144,34 @@ const PDFForm = () => {
 					</Document>
 				)}
 				<DropZone register={register} setValue={setValue} setPdf={setPdf} />
+				<div className="input-container d-flex flex-row-reverse align-items-center mb-2 py-3 w-100">
+					<label htmlFor="selectPdf" hidden>
+						Select an existing pdf
+					</label>
+					<select
+						className={`w-100 p-1 px-2 `}
+						type="text"
+						name="selectPdf"
+						id="selectPdf"
+						onChange={(e) => {
+							const selected = JSON.parse(e.target.value);
+							setPdf(`${BACKEND}/storage/${selected.name}`);
+							setUpdate(selected);
+						}}
+					>
+						<option ref={selectRef} value="" disabled selected>
+							Or Select an existing one
+						</option>
+						{optionsPdf
+							.filter((option) => option.active === false)
+							.map((option, index) => (
+								<option key={index} value={JSON.stringify(option)}>
+									{option.name}
+								</option>
+							))}
+					</select>
+					<div className="square mr-2"></div>
+				</div>
 				<button type="submit" className="button-form w-100 mt-3">
 					<div id="underline"></div>
 					Save

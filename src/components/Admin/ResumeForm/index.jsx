@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { DateRange } from 'react-date-range';
 import './ResumeForm.css';
@@ -8,23 +8,48 @@ import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
 import Axios from 'axios';
 import { BACKEND } from '../../../endpoints';
+import { useSnackbar } from 'react-simple-snackbar';
 
 moment.locale('en-gb');
 
+const options = {
+	position: 'bottom-right',
+	style: {
+		background: 'var(--primary-color-dark)',
+		color: 'var(--color-light)',
+		fontFamily: 'var(--secondary-font)',
+		fontSize: '.8em',
+		fontWeight: 600,
+		textTransform: 'uppercase',
+		boxShadow: '2px 2px 1px -2px #585864',
+		letterSpacing: 1.5,
+		border: 'none',
+		borderRadius: 0,
+		padding: 0,
+		textAlign: 'center',
+	},
+	closeStyle: {
+		color: 'var(--color-light)',
+	},
+};
+
 const ResumeForm = ({ values }) => {
+	const [openSnackbar] = useSnackbar(options);
+	const history = useHistory();
+	console.log(history.location.pathname);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
 		setValue,
-		setError,
 	} = useForm();
-
 	const [selectionRange, setSelectionRange] = useState([
 		{
-			startDate: values.start,
-			endDate: values.end,
+			startDate: moment(values.start).toDate(),
+			endDate: moment(values.end).isValid()
+				? moment(values.end).toDate()
+				: moment(values.start).toDate(),
 			key: 'selection',
 			color: '#229485',
 		},
@@ -42,18 +67,33 @@ const ResumeForm = ({ values }) => {
 		try {
 			if (!data.start) {
 				data.start = moment(values.start).format('YYYY-MM-DD');
-				data.end = moment(values.end).format('YYYY-MM-DD');
+				data.end = moment(values.end).isValid()
+					? moment(values.end).format('YYYY-MM-DD')
+					: moment(values.start).format('YYYY-MM-DD');
 			}
 			if (data.start === data.end) {
 				data.end = null;
 			}
+			let res;
+			if (history.location.pathname.includes('create')) {
+				res = await Axios.post(`${BACKEND}/resume`, data, {
+					withCredentials: true,
+				});
+				console.log(res);
+			}
 
-			const res = await Axios.post(`${BACKEND}/resume`, data, {
-				withCredentials: true,
-			});
-			console.log(res);
+			if (history.location.pathname.includes('edit')) {
+				res = await Axios.put(`${BACKEND}/resume/${values.id}`, data, {
+					withCredentials: true,
+				});
+				console.log(res);
+			}
+			reset();
+			openSnackbar(res.data.success);
+			history.push('/admin/resume');
 		} catch (err) {
 			console.log(err);
+			openSnackbar((err.response && err.response.statusText) || err);
 		}
 	};
 
@@ -122,7 +162,7 @@ const ResumeForm = ({ values }) => {
 								id="cardDetailedText"
 								placeholder="Description"
 								defaultValue={values.cardDetailedText}
-								// {...register('cardDetailedText', { required: true })}
+								{...register('cardDetailedText')}
 							/>
 							<div className="square mr-2"></div>
 							{/* {errors.cardDetailedText &&

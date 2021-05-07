@@ -165,10 +165,6 @@ const ResumeForm = ({ values }) => {
 								{...register('cardDetailedText')}
 							/>
 							<div className="square mr-2"></div>
-							{/* {errors.cardDetailedText &&
-								errors.cardDetailedText.type === 'required' && (
-									<p className="form-error-label">Required field</p>
-								)} */}
 						</div>
 					</section>
 					<section

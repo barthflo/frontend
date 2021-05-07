@@ -12,7 +12,6 @@ const PDFForm = () => {
 	const [pdf, setPdf] = useState([]);
 	const [optionsPdf, setOptionsPdf] = useState([]);
 	const selectRef = useRef();
-	// const [selected, setSelected] = useState(true);
 	const [update, setUpdate] = useState(null);
 	const [progress, setProgress] = useState(0);
 	const {
@@ -22,8 +21,6 @@ const PDFForm = () => {
 		reset,
 		setValue,
 	} = useForm();
-
-	console.log(selectRef.current);
 
 	const progressBar = {
 		position: 'fixed',
@@ -123,7 +120,6 @@ const PDFForm = () => {
 		fetchAllPdfs();
 	}, [fetchPDF, fetchAllPdfs]);
 
-	console.log(optionsPdf);
 	return (
 		<>
 			<div className="progress-bar" style={progressBar}></div>
@@ -160,7 +156,7 @@ const PDFForm = () => {
 						}}
 					>
 						<option ref={selectRef} value="" disabled selected>
-							Or Select an existing one
+							Or choose an existing one
 						</option>
 						{optionsPdf
 							.filter((option) => option.active === false)

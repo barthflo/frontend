@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import BannerImage from '../components/BannerImage/BannerImage';
-import ProjectFormCreate from '../components/Admin/ProjectFormCreate';
+import ProjectForm from '../components/Admin/ProjectForm';
 import CategoriesForm from '../components/Admin/CategoriesForm/Edit';
 import DropZone from '../components/Admin/DropZone';
 import { useForm } from 'react-hook-form';
@@ -16,7 +16,6 @@ const AdminWorksEdit = () => {
 	const [categories, setCategories] = useState([]);
 	const [progress, setProgress] = useState(0);
 	let [picturesToRemove, setPicturesToRemove] = useState([]);
-	console.log(picturesToRemove);
 
 	const {
 		register,
@@ -113,8 +112,8 @@ const AdminWorksEdit = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Admin Add Work - Flo Barth Web Developer</title>
-				<meta name="description" content="Add a new project" />
+				<title>Edit Work - Admin - Flo Barth Web Developer</title>
+				<meta name="description" content="Edit an existing project" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">
 				<BannerImage
@@ -128,7 +127,7 @@ const AdminWorksEdit = () => {
 							className="admin grid mb-4"
 							onSubmit={handleSubmit(onSubmit)}
 						>
-							<ProjectFormCreate
+							<ProjectForm
 								errors={errors}
 								register={register}
 								values={project}

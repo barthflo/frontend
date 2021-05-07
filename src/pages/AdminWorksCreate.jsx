@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import BannerImage from '../components/BannerImage/BannerImage';
-import ProjectFormCreate from '../components/Admin/ProjectFormCreate';
+import ProjectForm from '../components/Admin/ProjectForm';
 import CategoriesForm from '../components/Admin/CategoriesForm/Create';
 import DropZone from '../components/Admin/DropZone';
 import { useForm } from 'react-hook-form';
@@ -94,7 +94,7 @@ const AdminWorksCreate = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Admin Add Work - Flo Barth Web Developer</title>
+				<title>Add Work - Admin - Flo Barth Web Developer</title>
 				<meta name="description" content="Add a new project" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">
@@ -108,11 +108,7 @@ const AdminWorksCreate = () => {
 						className="admin grid mb-4"
 						onSubmit={handleSubmit(onSubmit)}
 					>
-						<ProjectFormCreate
-							errors={errors}
-							register={register}
-							values={values}
-						/>
+						<ProjectForm errors={errors} register={register} values={values} />
 						<CategoriesForm
 							register={register}
 							categories={values.categories}

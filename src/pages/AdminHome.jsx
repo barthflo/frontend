@@ -11,7 +11,7 @@ const AdminHome = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Admin Overview - Flo Barth Web Developer</title>
+				<title>Overview - Admin - Flo Barth Web Developer</title>
 				<meta name="description" content="Manage your website content" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">

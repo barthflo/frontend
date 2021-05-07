@@ -60,11 +60,17 @@ const ProjectFormCreate = ({ errors, register, values }) => {
 					id="link_url"
 					placeholder="Project URL"
 					defaultValue={values.link_url}
-					{...register('link_url', { required: true })}
+					{...register('link_url', {
+						required: true,
+						pattern: /^(ftp|http|https):\/\/[^ "]+$/,
+					})}
 				/>
 				<div className="square mr-2"></div>
 				{errors.link_url && errors.link_url.type === 'required' && (
 					<p className="form-error-label">Required field</p>
+				)}
+				{errors.link_url && errors.link_url.type === 'pattern' && (
+					<p className="form-error-label">Invalid Url</p>
 				)}
 			</div>
 		</section>

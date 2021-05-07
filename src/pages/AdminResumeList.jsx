@@ -2,40 +2,42 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import BannerImage from '../components/BannerImage/BannerImage';
 import ListTable from '../components/Admin/ListTable';
+import PDFForm from '../components/Admin/PDFForm';
 import Axios from 'axios';
 import { BACKEND } from '../endpoints';
 
-const titles = ['Title', 'Published', 'Actions'];
+const titles = ['Title', 'Date', 'Published', 'Actions'];
 
-const AdminWorksList = () => {
-	const [projects, setProjects] = useState([]);
+const AdminResumeList = () => {
+	const [experiences, setExperiences] = useState([]);
 
-	const fetchProjects = useCallback(async () => {
+	const fetchExperiences = useCallback(async () => {
 		try {
-			let res = await Axios.get(`${BACKEND}/projects`);
+			let res = await Axios.get(`${BACKEND}/resume`);
 			res = res.data.map((item) => {
 				return {
 					id: item.id,
-					title: item.title,
+					title: item.cardSubtitle,
+					date: item.title,
 					published: item.published,
 				};
 			});
-			setProjects(res);
+			setExperiences(res);
 		} catch (err) {
 			console.log(err);
 		}
-	}, [setProjects]);
+	}, [setExperiences]);
 
 	const handleCheckBox = async (value, id) => {
 		try {
 			const res = await Axios.put(
-				`${BACKEND}/projects/${id}`,
+				`${BACKEND}/resume/${id}`,
 				{ published: value },
 				{
 					withCredentials: true,
 				},
 			);
-			projects.find((project) => project.id === id).published =
+			experiences.find((experience) => experience.id === id).published =
 				res.data.update.published;
 		} catch (err) {
 			console.log(err);
@@ -43,26 +45,28 @@ const AdminWorksList = () => {
 	};
 
 	useEffect(() => {
-		fetchProjects();
-	}, [fetchProjects]);
+		fetchExperiences();
+	}, [fetchExperiences]);
 
 	return (
 		<>
 			<Helmet>
-				<title>Works Overview - Admin - Flo Barth Web Developer</title>
-				<meta name="description" content="List of all the projects" />
+				<title>Resume Overview - Admin - Flo Barth Web Developer</title>
+				<meta name="description" content="List of all the work experiences" />
 			</Helmet>
 			<main className="works-page w-100 pb-5">
 				<BannerImage
 					backgroundImage={`${process.env.PUBLIC_URL}/assets/abstractsquares.jpg`}
 				/>
-				<section className="admin d-flex flex-column align-items-center p-4 ">
+				<section className="admin d-flex flex-column align-items-center flex-md-row p-4 ">
 					<ListTable
 						cols={titles}
-						rows={projects}
-						prefix="projects"
-						setRows={setProjects}
+						rows={experiences}
+						prefix="resume"
+						setRows={setExperiences}
 						handleCheckBox={handleCheckBox}
+						classes="flex-grow-1"
+						children={<PDFForm />}
 					/>
 				</section>
 			</main>
@@ -70,4 +74,4 @@ const AdminWorksList = () => {
 	);
 };
 
-export default AdminWorksList;
+export default AdminResumeList;

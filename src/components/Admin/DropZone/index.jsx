@@ -23,6 +23,7 @@ const DropZone = ({
 	prevFiles,
 	filesToRemove,
 	setFilesToRemove,
+	setPdf,
 }) => {
 	const { pathname } = useLocation();
 	const [files, setFiles] = useState([]);
@@ -45,32 +46,41 @@ const DropZone = ({
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: ['image/*', 'application/pdf'],
 		onDrop: (acceptedFiles) => {
-			const getHeightAndWidthFromDataUrl = (dataURL) =>
-				new Promise((resolve) => {
-					const img = new Image();
-					img.onload = () => {
-						resolve({
-							height: img.height,
-							width: img.width,
-						});
-					};
-					img.src = dataURL;
-				});
-			const filesWithPreview = acceptedFiles.map((file) => {
-				if (file.type.includes('image')) {
+			if (pathname.includes('resume')) {
+				const preview = acceptedFiles.map((file) => {
 					file.preview = URL.createObjectURL(file);
+					return file;
+				});
+				setPdf(preview[0].preview);
+				setValue('files', acceptedFiles);
+			} else {
+				const getHeightAndWidthFromDataUrl = (dataURL) =>
+					new Promise((resolve) => {
+						const img = new Image();
+						img.onload = () => {
+							resolve({
+								height: img.height,
+								width: img.width,
+							});
+						};
+						img.src = dataURL;
+					});
+				const filesWithPreview = acceptedFiles.map((file) => {
+					if (file.type.includes('image')) {
+						file.preview = URL.createObjectURL(file);
 
-					getHeightAndWidthFromDataUrl(file.preview)
-						.then((res) => {
-							file.width = res.width;
-							file.height = res.height;
-						})
-						.catch((err) => console.log(err));
-				}
-				return file;
-			});
-			setFiles([...files, ...filesWithPreview]);
-			setValue('files', [...files, ...acceptedFiles]);
+						getHeightAndWidthFromDataUrl(file.preview)
+							.then((res) => {
+								file.width = res.width;
+								file.height = res.height;
+							})
+							.catch((err) => console.log(err));
+					}
+					return file;
+				});
+				setFiles([...files, ...filesWithPreview]);
+				setValue('files', [...files, ...acceptedFiles]);
+			}
 		},
 	});
 
@@ -90,9 +100,11 @@ const DropZone = ({
 					})}
 				>
 					<input {...getInputProps({})} />
-					{pathname.includes('edit') ? (
+					{pathname.includes('edit') || pathname.includes('resume') ? (
 						<p className="mb-0">
-							Drag 'n' drop some files here, or click to select files
+							{pathname.includes('resume')
+								? 'Upload a new PDF'
+								: "Drag 'n' drop some new files here or click to select files"}
 						</p>
 					) : (
 						<>
@@ -129,32 +141,34 @@ const DropZone = ({
 								</div>
 							</div>
 						))}
-					{files.map((file, index) =>
-						file.preview ? (
-							<div className="position-relative" key={index}>
-								<img src={file.preview} alt={file.name} />
-								<div
-									className="button-form"
-									style={deleteFile}
-									onClick={() => handleRemove(file.name)}
-								>
-									<div id="underline"></div>
-									<DeleteIcon color={'white'} size="1.2em" />
+					{files.map(
+						(file, index) =>
+							file.preview && (
+								<div className="position-relative" key={index}>
+									<img src={file.preview} alt={file.name} />
+									<div
+										className="button-form"
+										style={deleteFile}
+										onClick={() => handleRemove(file.name)}
+									>
+										<div id="underline"></div>
+										<DeleteIcon color={'white'} size="1.2em" />
+									</div>
 								</div>
-							</div>
-						) : (
-							<ul className="position-relative" key={index}>
-								<li>{file.name}</li>
-								<div
-									className="button-form"
-									style={deleteFile}
-									onClick={() => handleRemove(file.name)}
-								>
-									<div id="underline"></div>
-									<DeleteIcon color={'white'} size="1.2em" />
-								</div>
-							</ul>
-						),
+								// ) : (
+								// 	<ul className="position-relative" key={index}>
+								// 		<li>{file.name}</li>
+								// 		<div
+								// 			className="button-form"
+								// 			style={deleteFile}
+								// 			onClick={() => handleRemove(file.name)}
+								// 		>
+								// 			<div id="underline"></div>
+								// 			<DeleteIcon color={'white'} size="1.2em" />
+								// 		</div>
+								// 	</ul>
+								// ),
+							),
 					)}
 				</Masonry>
 			</section>

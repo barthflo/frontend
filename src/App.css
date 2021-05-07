@@ -87,6 +87,7 @@ body {
 
 input,
 textarea,
+select,
 .results-container {
 	border: none;
 	box-shadow: 2px 2px 2px -2px #585864;
@@ -98,7 +99,8 @@ textarea,
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus-visible {
 	background: #c4bdba2e;
 	outline: none;
 	transition: 0.3s ease-in-out;

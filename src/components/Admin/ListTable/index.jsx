@@ -1,7 +1,10 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
 import { FiEdit as EditIcon } from 'react-icons/fi';
-import { AiOutlineDelete as DeleteIcon } from 'react-icons/ai';
+import {
+	AiOutlineDelete as DeleteIcon,
+	AiOutlineRollback as BackIcon,
+} from 'react-icons/ai';
 import { IoAddSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
@@ -32,7 +35,15 @@ const options = {
 	},
 };
 
-const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
+const ListTable = ({
+	cols,
+	rows,
+	prefix,
+	setRows,
+	handleCheckBox,
+	children,
+	classes,
+}) => {
 	const [openSnackbar] = useSnackbar(options);
 
 	const handleConfirm = (id) => {
@@ -73,17 +84,17 @@ const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
 				withCredentials: true,
 			});
 			openSnackbar(res.data.success);
-			setProjects(rows.filter((row) => row.id !== id));
+			setRows(rows.filter((row) => row.id !== id));
 		} catch (err) {
 			console.log(err);
-			openSnackbar(err.response.statusText);
+			openSnackbar((err.response && err.response.statusText) || err);
 		}
 	};
 
 	return (
-		<>
-			<div className="table-responsive table-container">
-				<table className="table mb-0">
+		<div className="d-flex flex-column w-100">
+			<div className="table-responsive table-container d-flex flex-column flex-md-row ">
+				<table className={'table mb-0 ' + classes}>
 					<thead>
 						<tr>
 							{cols.map((col, index) => (
@@ -101,7 +112,6 @@ const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
 										// .filter((item) => item[0] !== 'id')
 										.map((item, index) => {
 											if (typeof item[1] === 'boolean') {
-												console.log(item);
 												return (
 													<td key={index}>
 														<input
@@ -149,15 +159,25 @@ const ListTable = ({ cols, rows, prefix, setProjects, handleCheckBox }) => {
 						})}
 					</tbody>
 				</table>
+				{children}
 			</div>
-			<button className="button-form mt-2 align-self-end">
-				<div id="underline"></div>
-				<Link to={`/admin/${prefix}/create`} className="p-0">
-					Add a project
-					<IoAddSharp color="f1f0f2" size="1.3em" />
-				</Link>
-			</button>
-		</>
+			<div className="align-self-end mt-3">
+				<button className="button-project m-0 mr-3">
+					<div id="underline"></div>
+					<Link to="/admin" className="p-0">
+						Back
+						<BackIcon color="#5b666a" size="1.3em" />
+					</Link>
+				</button>
+				<button className="button-form px-3" style={{ width: 'fit-content' }}>
+					<div id="underline"></div>
+					<Link to={`/admin/${prefix}/create`} className="p-0">
+						Add {prefix === 'resume' ? ' an experience' : ` a project`}
+						<IoAddSharp color="f1f0f2" size="1.3em" />
+					</Link>
+				</button>
+			</div>
+		</div>
 	);
 };
 

@@ -11,6 +11,9 @@ import AdminHome from './pages/AdminHome';
 import AdminWorksList from './pages/AdminWorksList';
 import AdminWorksCreate from './pages/AdminWorksCreate';
 import AdminWorksEdit from './pages/AdminWorksEdit';
+import AdminResumeList from './pages/AdminResumeList';
+import AdminResumeCreate from './pages/AdminResumeCreate';
+import AdminResumeEdit from './pages/AdminResumeEdit';
 import useAuth from './hooks/useAuth';
 
 const routes = [
@@ -38,10 +41,21 @@ const routes = [
 		exact: false,
 		guard: true,
 	},
-	{ path: '/admin/resume', component: AdminHome, exact: false, guard: true },
+	{
+		path: '/admin/resume',
+		component: AdminResumeList,
+		exact: true,
+		guard: true,
+	},
 	{
 		path: '/admin/resume/create',
-		component: AdminHome,
+		component: AdminResumeCreate,
+		exact: false,
+		guard: true,
+	},
+	{
+		path: '/admin/resume/:id/edit',
+		component: AdminResumeEdit,
 		exact: false,
 		guard: true,
 	},

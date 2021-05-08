@@ -37,6 +37,7 @@ const LoginForm = () => {
 
 		Axios.post(`${BACKEND}/auth/login`, data, {
 			withCredentials: true,
+			credentials: 'include',
 		})
 			.then((res) => {
 				console.log(res.data);

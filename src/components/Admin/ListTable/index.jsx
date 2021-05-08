@@ -161,15 +161,18 @@ const ListTable = ({
 				</table>
 				{children}
 			</div>
-			<div className="align-self-end mt-3">
-				<button className="button-project m-0 mr-3">
+			<div className="actions align-self-stretch align-self-sm-end mt-3">
+				<button className="button-project m-0 flex-grow-1 flex-sm-grow-0 mb-2 mb-sm-0 mr-sm-3">
 					<div id="underline"></div>
 					<Link to="/admin" className="p-0">
 						Back
 						<BackIcon color="#5b666a" size="1.3em" />
 					</Link>
 				</button>
-				<button className="button-form px-3" style={{ width: 'fit-content' }}>
+				<button
+					className="button-form px-3 flex-grow-1 flex-sm-grow-0"
+					// style={{ width: 'fit-content' }}
+				>
 					<div id="underline"></div>
 					<Link to={`/admin/${prefix}/create`} className="p-0">
 						Add {prefix === 'resume' ? ' an experience' : ` a project`}

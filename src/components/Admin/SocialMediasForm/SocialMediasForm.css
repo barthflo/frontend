@@ -1,0 +1,12 @@
+#links {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	#links {
+		width: 450px;
+	}
+	#links button {
+		width: 100%;
+	}
+}

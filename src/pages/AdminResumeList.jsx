@@ -58,7 +58,7 @@ const AdminResumeList = () => {
 				<BannerImage
 					backgroundImage={`${process.env.PUBLIC_URL}/assets/abstractsquares.jpg`}
 				/>
-				<section className="admin d-flex flex-column align-items-center flex-md-row p-4 ">
+				<section className="admin d-flex flex-column align-items-center flex-md-row p-2 p-sm-4 ">
 					<ListTable
 						cols={titles}
 						rows={experiences}

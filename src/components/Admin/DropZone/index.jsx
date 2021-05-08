@@ -100,7 +100,9 @@ const DropZone = ({
 					})}
 				>
 					<input {...getInputProps({})} />
-					{pathname.includes('edit') || pathname.includes('resume') ? (
+					{pathname.includes('edit') ||
+					pathname.includes('resume') ||
+					pathname.includes('bio') ? (
 						<p className="mb-0">
 							{pathname.includes('resume')
 								? 'Upload a new PDF'
@@ -121,7 +123,7 @@ const DropZone = ({
 				</div>
 			</section>
 
-			<section className="previews">
+			<section className="previews mt-3">
 				<Masonry
 					breakpointCols={{ default: 4, 1200: 5, 568: 3 }}
 					className="masonry-grid"

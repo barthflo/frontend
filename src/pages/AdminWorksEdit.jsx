@@ -58,12 +58,11 @@ const AdminWorksEdit = () => {
 			});
 		}
 
-		if (picturesToRemove) {
+		if (picturesToRemove.length) {
 			picturesToRemove = picturesToRemove.map((pic) => pic.name);
 			formData.append('picturesToRemove', picturesToRemove);
 		}
 
-		console.log(...formData);
 		try {
 			const response = await Axios.put(`${BACKEND}/projects/${id}`, formData, {
 				headers: {

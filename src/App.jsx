@@ -14,6 +14,7 @@ import AdminWorksEdit from './pages/AdminWorksEdit';
 import AdminResumeList from './pages/AdminResumeList';
 import AdminResumeCreate from './pages/AdminResumeCreate';
 import AdminResumeEdit from './pages/AdminResumeEdit';
+import AdminAbout from './pages/AdminBio';
 import useAuth from './hooks/useAuth';
 
 const routes = [
@@ -60,7 +61,7 @@ const routes = [
 		guard: true,
 	},
 
-	{ path: '/admin/bio', component: AdminHome, exact: false, guard: true },
+	{ path: '/admin/bio', component: AdminAbout, exact: false, guard: true },
 ];
 
 const App = () => {

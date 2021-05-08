@@ -115,8 +115,7 @@ const ResumeForm = ({ values }) => {
 							<input
 								className={`flex-grow-1 p-1 px-2 ${
 									errors.cardTitle ? ' form-error' : ''
-								}
-                    `}
+								}`}
 								type="text"
 								name="cardTitle"
 								id="cardTitle"
@@ -186,8 +185,8 @@ const ResumeForm = ({ values }) => {
 					</section>
 				</div>
 			</form>
-			<div className="align-self-end mt-3">
-				<button className="button-project m-0 mr-3">
+			<div className="actions align-self-stretch align-self-sm-end mt-3">
+				<button className="button-project m-0 mb-2 mb-sm-0 mr-sm-3">
 					<div id="underline"></div>
 					<Link to="/admin/resume" className="p-0">
 						Cancel
@@ -197,7 +196,7 @@ const ResumeForm = ({ values }) => {
 					className="button-form px-3"
 					form="resume-form"
 					type="submit"
-					style={{ width: 'fit-content' }}
+					// style={{ width: 'fit-content' }}
 				>
 					<div id="underline"></div>
 					Save

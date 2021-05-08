@@ -35,7 +35,7 @@ const AdminResumeEdit = () => {
 				<BannerImage
 					backgroundImage={`${process.env.PUBLIC_URL}/assets/abstractsquares.jpg`}
 				/>
-				<section className="admin d-flex flex-column align-items-center p-4 ">
+				<section className="admin d-flex flex-column align-items-center p-2 p-sm-4">
 					{!loading && <ResumeForm values={experience} />}
 				</section>{' '}
 			</main>

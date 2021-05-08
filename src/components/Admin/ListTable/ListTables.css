@@ -13,8 +13,9 @@
 	height: 35px;
 }
 
-.admin .button-form {
-	width: 150px;
+.admin .actions .button-form,
+.admin .actions .button-project {
+	width: 100%;
 }
 
 th {
@@ -48,4 +49,12 @@ tr {
 
 td {
 	vertical-align: inherit !important;
+}
+
+@media (min-width: 575px) {
+	.admin .actions .button-form,
+	.admin .actions .button-project {
+		/* min-width: 150px; */
+		width: fit-content;
+	}
 }

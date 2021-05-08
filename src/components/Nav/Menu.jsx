@@ -12,9 +12,9 @@ const menuItems = [
 	{ title: 'Contact', path: '/contact', admin: false },
 	{ title: 'Login', path: '/login', admin: false },
 	{ title: 'Overview', path: '/admin', admin: true },
-	{ title: 'Projects View', path: '/admin/projects', admin: true },
+	{ title: 'Projects', path: '/admin/projects', admin: true },
 	{ title: 'Resume', path: '/admin/resume', admin: true },
-	{ title: 'About and Links', path: '/admin/about', admin: true },
+	{ title: 'Bio and Links', path: '/admin/bio', admin: true },
 ];
 
 const Menu = ({ className, closeMenu }) => {
@@ -26,7 +26,6 @@ const Menu = ({ className, closeMenu }) => {
 		const login = menuItems.find((item) => item.path === '/login');
 
 		if (user.isVerified) {
-			console.log(login);
 			login.title = 'Admin';
 		} else {
 			login.title = 'Login';

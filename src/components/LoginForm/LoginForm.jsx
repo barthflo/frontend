@@ -46,15 +46,15 @@ const LoginForm = () => {
 				history.push('/admin');
 			})
 			.catch((error) => {
-				console.log(error.response);
-				if (error.response.status === 404) {
+				console.log(error);
+				if (error.response && error.response.status === 404) {
 					setError('name', {
 						type: 'submit',
 						message: error.response.data,
 					});
 					setUser(false, null);
 				}
-				if (error.response.status === 403) {
+				if (error.response && error.response.status === 403) {
 					setError('password', {
 						type: 'submit',
 						message: error.response.data,

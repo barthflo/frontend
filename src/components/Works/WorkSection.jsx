@@ -107,7 +107,9 @@ const WorkSection = ({ project }) => {
 				) : null}
 			</div>
 			<Parallax y={[10, -10]}>
-				<p className="px-3 mt-4 project-description">{project.description}</p>
+				<p className="px-3 mt-4 px-lg-5 mx-lg-5 project-description">
+					{project.description}
+				</p>
 			</Parallax>
 		</section>
 	);

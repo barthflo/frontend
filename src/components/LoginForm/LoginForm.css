@@ -18,5 +18,6 @@
 	#loginForm {
 		width: 450px;
 		border-radius: 2px;
+		height: fit-content;
 	}
 }

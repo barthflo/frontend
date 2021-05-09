@@ -120,7 +120,7 @@ const LoginForm = () => {
 			</div>
 			<button
 				type="submit"
-				className="button-form align-self-end"
+				className="button-form align-self-end mb-md-3"
 				title="Connect"
 			>
 				<div id="underline"></div>

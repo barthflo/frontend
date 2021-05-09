@@ -119,7 +119,7 @@ const AdminWorksEdit = () => {
 					backgroundImage={`${process.env.PUBLIC_URL}/assets/abstractsquares.jpg`}
 				/>
 				<div className="progress-bar" style={progressBar}></div>
-				<div className="d-flex flex-column p-4">
+				<div className="d-flex flex-column p-2 p-sm-4">
 					{project && (
 						<form
 							id="project-create-form"

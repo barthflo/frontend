@@ -72,3 +72,9 @@
 		text-align: right;
 	}
 }
+
+@media (min-width: 1400px) {
+	.home-page h2 {
+		font-size: 7em;
+	}
+}

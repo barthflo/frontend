@@ -64,17 +64,17 @@ const ContactForm = () => {
 	};
 
 	return (
-		<section className="contact flex-sm-grow-1 d-flex flex-column justify-content-around px-4 pt-5 pb-2 p-sm-5 ">
+		<section className="contact flex-sm-grow-1 d-flex flex-column justify-content-around justify-content-lg-center px-4 pt-5 pb-2 p-sm-5 ">
 			<div>
 				<h3 className="text-center mb-4">Having a question?</h3>
-				<h4 className="text-left mb-4">
+				<h4 className="text-left text-lg-center mb-4">
 					Fill in the form below and I'll get back to you shortly :){' '}
 				</h4>
 			</div>
 
 			<form
 				id="contactForm"
-				className="w-100 d-flex flex-column"
+				className="w-100 d-flex flex-column p-lg-5"
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<p className="font-italic small">

@@ -68,3 +68,9 @@
 		color: var(--color-light);
 	}
 }
+
+@media (min-width: 1400px) {
+	.menu li {
+		font-size: 1.3em;
+	}
+}

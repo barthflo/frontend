@@ -98,6 +98,11 @@ select,
 	background: var(--color-light);
 }
 
+#contactForm input,
+#loginForm input {
+	background: #e1e1e182 !important;
+}
+
 input:focus,
 textarea:focus,
 select:focus-visible {

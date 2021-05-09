@@ -99,6 +99,7 @@ select,
 }
 
 #contactForm input,
+#contactForm textarea,
 #loginForm input {
 	background: #e1e1e182 !important;
 }

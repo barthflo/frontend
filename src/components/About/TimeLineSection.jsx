@@ -40,7 +40,7 @@ const TimeLineSection = () => {
 			>
 				<Chrono
 					items={data.items}
-					scrollable
+					scrollable={{ scrollbar: true }}
 					itemWidth={400}
 					hideControls={true}
 					allowDynamicUpdate

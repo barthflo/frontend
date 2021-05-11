@@ -8,7 +8,7 @@ const Home = () => {
 	const [greetings, setGreetings] = useState([
 		"I'm Flo",
 		'Full Stack',
-		'Developper!',
+		'Developer!',
 	]);
 	const replaceGreetings = (index) => {
 		switch (index) {

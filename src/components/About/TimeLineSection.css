@@ -15,6 +15,10 @@
 	max-height: unset !important;
 }
 
+.show-less {
+	max-height: 50px !important;
+}
+
 .timeline-circle,
 .timeline-vertical-circle div {
 	border-radius: 0 !important;

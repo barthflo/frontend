@@ -66,7 +66,7 @@ const ContactForm = () => {
 	return (
 		<section className="contact flex-sm-grow-1 d-flex flex-column justify-content-around justify-content-lg-center px-4 pt-5 pb-2 p-sm-5 ">
 			<div>
-				<h3 className="text-center mb-4">Having a question?</h3>
+				<h3 className="text-center mb-4">Do you have a question?</h3>
 				<h4 className="text-left text-lg-center mb-4">
 					Fill in the form below and I'll get back to you shortly :){' '}
 				</h4>
@@ -78,7 +78,7 @@ const ContactForm = () => {
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<p className="font-italic small">
-					** None of your informations will be stored in the system
+					** Your details will not be stored in the system
 				</p>
 				<div className="input-container d-flex flex-row-reverse align-items-center mb-2 py-3">
 					<label htmlFor="name" hidden>

@@ -12,7 +12,7 @@
 	max-width: 800px;
 }
 .card-description {
-	overflow-y: scroll !important;
+	max-height: unset !important;
 }
 
 .timeline-circle,

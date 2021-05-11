@@ -11,6 +11,9 @@
 #react-chrono-timeline {
 	max-width: 800px;
 }
+.card-description {
+	overflow-y: scroll !important;
+}
 
 .timeline-circle,
 .timeline-vertical-circle div {

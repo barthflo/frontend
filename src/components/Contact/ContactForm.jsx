@@ -93,6 +93,7 @@ const ContactForm = () => {
 						id="name"
 						placeholder="Your name"
 						defaultValue={values.name}
+						autoComplete="off"
 						{...register('name', { required: true })}
 					/>
 					<div className="square mr-2"></div>
@@ -103,7 +104,7 @@ const ContactForm = () => {
 				</div>
 				<div className="input-container d-flex flex-row-reverse align-items-center mb-2 py-3">
 					<label htmlFor="email" hidden>
-						Your name
+						Your email
 					</label>
 					<input
 						className={`flex-grow-1 p-1 px-2 ${
@@ -114,6 +115,7 @@ const ContactForm = () => {
 						id="email"
 						placeholder="Your email address"
 						defaultValue={values.email}
+						autoComplete="off"
 						{...register('email', {
 							required: true,
 							pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/,

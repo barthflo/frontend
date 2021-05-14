@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import Nav from './components/Nav/NavContainer';
 import Home from './pages/Home';
 import Works from './pages/Works';
@@ -16,13 +16,15 @@ import AdminResumeCreate from './pages/AdminResumeCreate';
 import AdminResumeEdit from './pages/AdminResumeEdit';
 import AdminAbout from './pages/AdminBio';
 import useAuth from './hooks/useAuth';
+import errorServer from './pages/errors/500';
 
 const routes = [
 	{ path: '/', component: Home, exact: true },
 	{ path: '/works', component: Works, exact: false },
 	{ path: '/about', component: About, exact: false },
 	{ path: '/contact', component: Contact, exact: false },
-	{ path: '/login', component: Login, exact: false },
+	{ path: '/500', component: errorServer, exact: true, guard: false },
+	{ path: '/login', component: Login, exact: true },
 	{ path: '/admin', component: AdminHome, exact: true, guard: true },
 	{
 		path: '/admin/projects',
@@ -60,16 +62,24 @@ const routes = [
 		exact: false,
 		guard: true,
 	},
-
 	{ path: '/admin/bio', component: AdminAbout, exact: false, guard: true },
 ];
 
 const App = () => {
 	const { user } = useAuth();
+	const { pathname } = useLocation();
+	console.log(pathname);
+
+	const renderNav = () => {
+		if (pathname !== '/500' && pathname !== '/401') {
+			return <Nav />;
+		}
+	};
 
 	return (
 		<div className="App">
-			<Nav />
+			{/* <Nav /> */}
+			{renderNav()}
 			<Switch>
 				{routes.map((route, index) =>
 					!user.isVerified && route.guard ? (

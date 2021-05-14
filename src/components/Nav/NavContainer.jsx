@@ -1,6 +1,6 @@
 import Logo from './Logo';
 import Menu from './Menu';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const NavContainer = () => {
@@ -17,7 +17,9 @@ const NavContainer = () => {
 		}
 	};
 	window.addEventListener('scroll', position);
-
+	useEffect(() => {
+		return () => window.removeEventListener('scroll');
+	}, []);
 	return (
 		<div
 			className={

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Axios from 'axios';
 import { BACKEND, FRONTEND } from '../endpoints';
@@ -10,6 +11,7 @@ import './Works.css';
 const Works = () => {
 	const [projects, setProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const history = useHistory();
 	useEffect(() => {
 		const fetchProjects = async () => {
 			await Axios.get(`${BACKEND}/projects`)
@@ -20,13 +22,14 @@ const Works = () => {
 				})
 				.catch((err) => {
 					console.log(err);
+					history.push('/500');
 				});
 		};
 		(async () => {
 			window.scrollTo(0, 0);
 			await fetchProjects();
 		})();
-	}, []);
+	}, [history]);
 
 	return (
 		<>

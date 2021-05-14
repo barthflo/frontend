@@ -1,0 +1,4 @@
+.button-error .button-form:hover {
+	text-decoration: none;
+	color: var(--color-light);
+}

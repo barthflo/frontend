@@ -32,7 +32,7 @@ const About = () => {
 			window.scrollTo(0, 0);
 			await fetchAbout();
 		})();
-	}, []);
+	}, [history]);
 
 	return (
 		<>

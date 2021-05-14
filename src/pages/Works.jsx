@@ -4,16 +4,19 @@ import Axios from 'axios';
 import { BACKEND, FRONTEND } from '../endpoints';
 import BannerImage from '../components/BannerImage/BannerImage';
 import WorkSection from '../components/Works/WorkSection';
+import LoadingScreen from '../components/LoadingScreen';
 import './Works.css';
 
 const Works = () => {
 	const [projects, setProjects] = useState([]);
+	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		const fetchProjects = async () => {
 			await Axios.get(`${BACKEND}/projects`)
 				.then((res) => {
 					console.log({ status: res.status, message: res.statusText });
 					setProjects(res.data.filter((data) => data.published !== false));
+					setLoading(false);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -41,9 +44,13 @@ const Works = () => {
 				/>
 				<>
 					<h2 className="page-title">Works</h2>
-					{projects.map((project, index) => (
-						<WorkSection key={index} project={project} />
-					))}
+					{loading ? (
+						<LoadingScreen loading={loading} />
+					) : (
+						projects.map((project, index) => (
+							<WorkSection key={index} project={project} />
+						))
+					)}
 				</>
 			</main>
 		</>

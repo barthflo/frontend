@@ -5,6 +5,8 @@ import { BACKEND, FRONTEND } from '../endpoints';
 import BannerImage from '../components/BannerImage/BannerImage';
 import AboutSection from '../components/About/AboutSection';
 import TimeLineSection from '../components/About/TimeLineSection';
+import LoadingScreen from '../components/LoadingScreen';
+
 import './About.css';
 
 const About = () => {
@@ -41,9 +43,9 @@ const About = () => {
 					backgroundImage={`${FRONTEND}/assets/abstractsquares.jpg`}
 				/>
 				<h2 className="page-title">About Me</h2>
-				{!isLoading && (
-					// 	'Loading....'
-					// ) : (
+				{isLoading ? (
+					<LoadingScreen loading={isLoading} />
+				) : (
 					<>
 						<AboutSection about={about} />
 						<TimeLineSection />
